@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Question from './Question';
 import { Link } from 'react-router'
+import LinkButton from './LinkButton'
 
 class QuestionSection extends Component {
   constructor(props){
@@ -40,17 +41,7 @@ class QuestionSection extends Component {
 
             {nextLink && (
               <div >
-                <Link
-                  style={{
-                    display:"block",
-                    backgroundColor:"#ddd",
-                    color:"black",
-                    textDecoration:"none",
-                    padding:"10px",
-                    textAlign:"center"
-                  }}
-                  to={nextLink}
-                >Next Section > </Link>
+                <LinkButton to={nextLink}>Next Section > </LinkButton>
               </div>
             )}
 

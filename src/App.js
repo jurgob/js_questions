@@ -2,7 +2,10 @@ import React from 'react';
 import './App.css';
 import WarmUp from './components/sections/WarmUp'
 import Basics from './components/sections/Basics'
+import DataTypes from './components/sections/DataTypes'
+import StartTest from './components/StartTest'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import AnimatedPages from './components/AnimatedPages';
 
 
 class App extends React.Component {
@@ -23,9 +26,13 @@ class App extends React.Component {
         </div>
         <div style={{padding:"20px"}}>
           <Router history={browserHistory}>
-            <Route path="/">
-              <IndexRoute component={WarmUp} />
-              <Route path="/basics" component={Basics} />
+            <Route path="/"  >
+              <IndexRoute component={StartTest} />
+              <Route component={AnimatedPages} >
+                <Route path="/warmup" component={WarmUp} />
+                <Route path="/basics" component={Basics} />
+                <Route path="/datatypes" component={DataTypes} />
+              </Route>
             </Route>
           </Router>
         </div>

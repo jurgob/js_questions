@@ -76,7 +76,7 @@ const warmUp = [
       obj1.myProp = true;
       log(obj2.myProp)
     `
-  },
+  }
 
 ]
 const WarmUp = () => (

@@ -48,6 +48,7 @@ const Basics = () => (
     title="Basics"
     introduction={<Introduction />}
     questions={questions}
+    nextLink="datatypes"
   />
 
 )
