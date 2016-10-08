@@ -25,7 +25,7 @@ class App extends React.Component {
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
           </p>
         </div>
-        <div style={{padding:"20px"}}>
+        <div style={{paddingTop:"20px"}}>
           <Router history={browserHistory}>
             <Route path="/"  >
               <IndexRoute component={StartTest} />

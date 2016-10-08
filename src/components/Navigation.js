@@ -5,21 +5,23 @@ import sectionsList from '../sectionsList';
 
 const styles = {
   link:{
-    display:"inlineBlock",
     padding:"10px",
-    textDecoration:"none"
+    textDecoration:"none",
+    display:"block",
+    color:"#666"
   },
   linkActive:{
-    borderBottom:"1px solid grey"
+    color:"#000",
+    fontWeight:"bold"
   }
 }
 
 const Navigation = (props) => (
-  <div>
+  <div style={{textAlign:"left"}} >
     {sectionsList.map((m, idx) => (
-      <span key={idx} >
+      <div key={idx} >
         <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >{m.label}</Link>
-      </span>
+      </div>
     ))}
   </div>
 )

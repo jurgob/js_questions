@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Question from './Question';
-import { Link } from 'react-router'
 import LinkButton from './LinkButton'
 
 class QuestionSection extends Component {
