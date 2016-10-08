@@ -13,6 +13,10 @@ const modules = [
   {
     label:"Data Types",
     link:"/datatypes"
+  },
+  {
+    label:"Boolean",
+    link:"/boolean"
   }
 ]
 

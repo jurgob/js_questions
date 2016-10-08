@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
+import StartTest from './components/StartTest'
 import WarmUp from './components/sections/WarmUp'
 import Basics from './components/sections/Basics'
 import DataTypes from './components/sections/DataTypes'
-import StartTest from './components/StartTest'
+import BooleanSection from './components/sections/Boolean'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AnimatedPages from './components/AnimatedPages';
 
@@ -32,6 +33,7 @@ class App extends React.Component {
                 <Route path="/warmup" component={WarmUp} />
                 <Route path="/basics" component={Basics} />
                 <Route path="/datatypes" component={DataTypes} />
+                <Route path="/boolean" component={BooleanSection} />
               </Route>
             </Route>
           </Router>
