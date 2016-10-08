@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Question from './Question';
+import { Link } from 'react-router'
 
 class QuestionSection extends Component {
   constructor(props){
@@ -18,7 +19,7 @@ class QuestionSection extends Component {
 
   render() {
     const {questions} = this.state;
-    const {title, introduction} = this.props;
+    const {title, introduction, nextLink} = this.props;
 
     return (
         <section style={{textAlign:"left"}} >
@@ -36,6 +37,24 @@ class QuestionSection extends Component {
               </div>
             ))}
           </div>
+
+            {nextLink && (
+              <div >
+                <Link
+                  style={{
+                    display:"block",
+                    backgroundColor:"#ddd",
+                    color:"black",
+                    textDecoration:"none",
+                    padding:"10px",
+                    textAlign:"center"
+                  }}
+                  to={nextLink}
+                >Next Section > </Link>
+              </div>
+            )}
+
+
         </section>
     );
   }

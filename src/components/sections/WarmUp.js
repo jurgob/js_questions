@@ -84,6 +84,7 @@ const WarmUp = () => (
     title="Warm Up"
     introduction={<div>Let' s familiarize with the system</div>}
     questions={warmUp}
+    nextLink="basics"
   />
 
 )

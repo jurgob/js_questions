@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import WarmUp from './components/sections/WarmUp'
 import Basics from './components/sections/Basics'
-
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 
 class App extends React.Component {
@@ -22,8 +22,12 @@ class App extends React.Component {
           </p>
         </div>
         <div style={{padding:"20px"}}>
-          <WarmUp />
-          <Basics />
+          <Router history={browserHistory}>
+            <Route path="/">
+              <IndexRoute component={WarmUp} />
+              <Route path="/basics" component={Basics} />
+            </Route>
+          </Router>
         </div>
       </div>
     )
