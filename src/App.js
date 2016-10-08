@@ -15,7 +15,7 @@ class App extends React.Component {
             This is a little test about your javascript ability. Write down in the inputs what the <code>log()</code> function will print
           </p>
           <p>
-            <b>note:</b> if the result is a string , wrap your response with doblequote: <code>false</code> will be a bolean, <code>"false"</code> will be a string.
+            <b>note:</b> if the result is a string , wrap your response with double quote: <code>false</code> will be a bolean, <code>"false"</code> will be a string.
           </p>
           <p>
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
