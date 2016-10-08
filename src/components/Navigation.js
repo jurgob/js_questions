@@ -1,24 +1,7 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router'
+import sectionsList from '../sectionsList';
 
-const modules = [
-  {
-    label:"Warm Up",
-    link:"/warmup"
-  },
-  {
-    label:"Basics",
-    link:"/basics"
-  },
-  {
-    label:"Data Types",
-    link:"/datatypes"
-  },
-  {
-    label:"Boolean",
-    link:"/boolean"
-  }
-]
 
 const styles = {
   link:{
@@ -33,7 +16,7 @@ const styles = {
 
 const Navigation = (props) => (
   <div>
-    {modules.map((m, idx) => (
+    {sectionsList.map((m, idx) => (
       <span key={idx} >
         <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >{m.label}</Link>
       </span>
