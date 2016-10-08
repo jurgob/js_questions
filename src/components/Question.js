@@ -4,6 +4,7 @@ import Code from './Code'
 function _eval(code){
   let logResponse ="";
   const log = function(l){ logResponse=l }
+  _eval.log = log;
   eval(code)
 
   if(logResponse === undefined)

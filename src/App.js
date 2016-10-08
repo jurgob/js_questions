@@ -7,7 +7,7 @@ import DataTypes from './components/sections/DataTypes'
 import BooleanSection from './components/sections/Boolean'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AnimatedPages from './components/AnimatedPages';
-
+import sections from './sectionsList'
 
 class App extends React.Component {
   render(){
@@ -30,10 +30,9 @@ class App extends React.Component {
             <Route path="/"  >
               <IndexRoute component={StartTest} />
               <Route component={AnimatedPages} >
-                <Route path="/warmup" component={WarmUp} />
-                <Route path="/basics" component={Basics} />
-                <Route path="/datatypes" component={DataTypes} />
-                <Route path="/boolean" component={BooleanSection} />
+                {sections.map((section)=>(
+                  <Route path={section.link} component={section.component} />
+                ))}
               </Route>
             </Route>
           </Router>
