@@ -1,10 +1,6 @@
 import React from 'react';
 import './App.css';
 import StartTest from './components/StartTest'
-import WarmUp from './components/sections/WarmUp'
-import Basics from './components/sections/Basics'
-import DataTypes from './components/sections/DataTypes'
-import BooleanSection from './components/sections/Boolean'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AnimatedPages from './components/AnimatedPages';
 import sections from './sectionsList'
