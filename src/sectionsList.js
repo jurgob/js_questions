@@ -8,9 +8,14 @@ export default [
     title:"Warm Up",
     subsections:[
       {
-        label:"Warm Up",
+        label:"How to responde",
+        link:"/how_to_responde",
+        questions:require('./questions/warmup/how_to_responde').default,
+      },
+      {
+        label:"Some Warm Up",
         link:"/warmup",
-        questions:require('./questions/warmup').default,
+        questions:require('./questions/warmup/warmup').default,
       },
     ]
   },
