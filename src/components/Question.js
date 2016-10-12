@@ -1,37 +1,49 @@
 import React from 'react'
 import Code from './Code'
 
+function formatEval(code){
+  if(code === undefined)
+    code = "undefined"
+  else
+    code = JSON.stringify(code)
+
+  return code
+}
+
+function safeEval(code){
+  try{
+    return eval(code)
+  }catch(e){
+    return e.message
+  }
+}
+
 function _eval(code){
   let logResponse ="";
   const log = function(l){ logResponse=l }
   _eval.log = log;
   eval(code)
 
-  if(logResponse === undefined)
-    logResponse = "undefined"
-  else
-    logResponse = JSON.stringify(logResponse)
-
-  return logResponse;
+  return formatEval(logResponse);
 }
 
 const Question = ({code, onCheckResponse, response, text}) => {
-  if(response !== undefined )
-    response +=""
 
   const hasResponse = typeof response === 'string' && response !== ''
-  const userResponse = response +=""
 
   const solution = _eval(code)
 
+
   const responseIsRight =
     hasResponse &&
-    userResponse === solution
+    solution === formatEval(safeEval(response))
 
   return (
     <div>
       <div>
         <h3>{text}</h3>
+        solution: {solution}
+        response: {formatEval(safeEval(response))}
         <Code>
           {code}
         </Code>
