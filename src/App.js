@@ -4,7 +4,14 @@ import StartTest from './components/StartTest'
 import QuestionSection from './components/QuestionSection'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AnimatedPages from './components/AnimatedPages';
-import sections from './sectionsList'
+import sectionsList from './sectionsList'
+
+console.log('sectionsList ',sectionsList)
+
+const sections = sectionsList.reduce((res,curr) => res.concat(curr.subsections) ,[] )
+
+console.log('sections ',sections)
+
 
 const generateSection = (props) => {
   console.log('generateSection ',props)
@@ -14,6 +21,7 @@ const generateSection = (props) => {
 
 class App extends React.Component {
   render(){
+
     return (
       <div className="App" >
         <div className="App-header">

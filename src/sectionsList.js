@@ -5,26 +5,37 @@
 
 export default [
   {
-    label:"Warm Up",
-    link:"/warmup",
-    questions:require('./questions/warmup').default,
+    title:"Warm Up",
+    subsections:[
+      {
+        label:"Warm Up",
+        link:"/warmup",
+        questions:require('./questions/warmup').default,
+      },
+    ]
   },
   {
-    label:"Basics",
-    link:"/basics",
-    questions:require('./questions/basics').default,
-    tutorial_link:"http://xahlee.info/js/javascript_basics.html"
-  },
-  {
-    label:"Data Types",
-    link:"/datatypes",
-    questions:require('./questions/datatypes').default
-  },
-  {
-    label:"Boolean",
-    link:"/boolean",
-    questions:require('./questions/boolean').default
-  },
+    title:"Javascript Basics",
+    subsections:[
+      {
+        label:"Basics",
+        link:"/basics",
+        questions:require('./questions/basics').default,
+        tutorial_link:"http://xahlee.info/js/javascript_basics.html"
+      },
+      {
+        label:"Data Types",
+        link:"/datatypes",
+        questions:require('./questions/datatypes').default
+      },
+      {
+        label:"Boolean",
+        link:"/boolean",
+        questions:require('./questions/boolean').default
+      }
+    ]
+
+  }
 
   // {
   //   label:"Operators",
