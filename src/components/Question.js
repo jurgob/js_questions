@@ -42,8 +42,6 @@ const Question = ({code, onCheckResponse, response, text}) => {
     <div>
       <div>
         <h3>{text}</h3>
-        solution: {solution}
-        response: {formatEval(safeEval(response))}
         <Code>
           {code}
         </Code>
