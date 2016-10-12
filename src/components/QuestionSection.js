@@ -29,7 +29,7 @@ class QuestionSection extends Component {
             {questions.map( (question, idx) => (
               <div key={idx} style={{borderBottom: "1px solid #ddd", paddingBottom:"10px"}} >
                 <Question
-                  text={question.text}
+                  text={(idx+1)+")"}
                   code={question.code}
                   onCheckResponse={(response) => this.updateQuestionResponse(idx, response)}
                   response={question.response}

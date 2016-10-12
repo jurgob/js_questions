@@ -1,28 +1,29 @@
-import WarmUp from './components/sections/WarmUp'
-import Basics from './components/sections/Basics'
-import DataTypes from './components/sections/DataTypes'
-import BooleanSection from './components/sections/Boolean'
+// import WarmUp from './components/sections/WarmUp'
+// import Basics from './components/sections/Basics'
+// import DataTypes from './components/sections/DataTypes'
+// import BooleanSection from './components/sections/Boolean'
 
 export default [
   {
     label:"Warm Up",
     link:"/warmup",
-    component:WarmUp
+    questions:require('./questions/warmup').default,
   },
   {
     label:"Basics",
     link:"/basics",
-    component:Basics
+    questions:require('./questions/basics').default,
+    tutorial_link:"http://xahlee.info/js/javascript_basics.html"
   },
   {
     label:"Data Types",
     link:"/datatypes",
-    component:DataTypes
+    questions:require('./questions/datatypes').default
   },
   {
     label:"Boolean",
     link:"/boolean",
-    component:BooleanSection
+    questions:require('./questions/boolean').default
   },
 
   // {

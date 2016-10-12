@@ -1,9 +1,16 @@
 import React from 'react';
 import './App.css';
 import StartTest from './components/StartTest'
+import QuestionSection from './components/QuestionSection'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AnimatedPages from './components/AnimatedPages';
 import sections from './sectionsList'
+
+const generateSection = (props) => {
+  console.log('generateSection ',props)
+  return (_propsFromRoute) => <QuestionSection {...{ _propsFromRoute, ...props  }}  />
+}
+
 
 class App extends React.Component {
   render(){
@@ -26,9 +33,23 @@ class App extends React.Component {
             <Route path="/"  >
               <IndexRoute component={StartTest} />
               <Route component={AnimatedPages} >
-                {sections.map((section)=>(
-                  <Route path={section.link} component={section.component} />
-                ))}
+                {sections.map((section, idx)=> {
+                  const _nextLink = sections[idx+1] ? sections[idx+1].link : undefined
+                  let introduction = "";
+                  if(section.tutorial_link)
+                    introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
+                  return <Route
+                    key={idx}
+                    path={section.link}
+                    component={generateSection({
+                      ...section,
+                      nextLink:_nextLink,
+                      title: section.label,
+                      introduction
+                    })}
+                  />
+
+                })}
               </Route>
             </Route>
           </Router>
