@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, Link} from 'react-router'
+import Link from 'react-router/Link'
 import sectionsList from '../sectionsList';
 
 
@@ -18,7 +18,6 @@ const styles = {
 
 const Navigation = (props) => (
   <div style={{textAlign:"left"}} >
-
     {sectionsList.map((m, idx) => (
       <div key={idx} style={{paddingBottom:"20px"}} >
         <b>{m.title}</b>
@@ -32,11 +31,11 @@ const SectionLinks = ({sections}) => (
   <div>
     {sections.map((m, idx) => (
       <div key={idx} >
-        <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >{m.label}</Link>
+        <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >tet{m.label}</Link>
       </div>
     ))}
   </div>
 )
 
 
-export default withRouter(Navigation)
+export default Navigation

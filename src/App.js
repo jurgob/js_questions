@@ -1,26 +1,78 @@
 import React from 'react';
 import './App.css';
 import StartTest from './components/StartTest'
+import Navigation from './components/Navigation'
 import QuestionSection from './components/QuestionSection'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import AnimatedPages from './components/AnimatedPages';
+import Router from 'react-router/BrowserRouter'
+import Match from 'react-router/Match'
 import sectionsList from './sectionsList'
+// const flatSection = (sectionsList,responses) => sectionsList
+//   .reduce(
+//     (res,curr,idx) => res.concat(curr.subsections.map((s, sidx) => ({
+//       ...s,
+//       id:idx+"__"+sidx,
+//       questions: s.questions.map((q,qidx) => ({
+//         ...q,
+//         id:idx+"__"+sidx+"__"+qidx,
+//         response:responses[idx+"__"+sidx+"__"+qidx]
+//       }))
+//     }))),
+//     []
+//   )
 
-console.log('sectionsList ',sectionsList)
-
-const sections = sectionsList.reduce((res,curr) => res.concat(curr.subsections) ,[] )
-
-console.log('sections ',sections)
+// const flatSection = (sectionsList,responses) => sectionsList.map((s,idx) => ({
+//
+// }))
 
 
-const generateSection = (props) => {
-  console.log('generateSection ',props)
-  return (_propsFromRoute) => <QuestionSection {...{ _propsFromRoute, ...props  }}  />
-}
+const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> ({
+  ...q,
+  id:key+"__"+idx,
+  response: responses[key+"__"+idx]
+}))
+
+const flatSection = (sectionsList,responses) => sectionsList.map((s, idx) => ({
+  ...s,
+  subsections: s.subsections.map((sub ,sidx) => ({
+    ...sub,
+    questions: prepareQuestions(sub.questions, responses, idx+'__'+sidx)
+  }) )
+}))
+
+console.log('sections ',flatSection(sectionsList, {}))
+
+
+// const generateSection = (props) => {
+//   return (_propsFromRoute) => <div><QuestionSection {...{ _propsFromRoute, ...props  }}  /></div>
+// }
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      sectionsList:sectionsList,
+      responses:{}
+    }
+  }
+
+  setResponse = (id, response) => {
+    console.log('id: ',id)
+    this.setState({
+      responses: {
+        ...this.state.responses,
+        [id]:response
+      }
+    })
+    console.log('response ',response)
+    console.log('this.state.responses ', this.state.responses )
+
+  }
+
   render(){
+    const {sectionsList,responses} = this.state;
+
+    const sections = flatSection(sectionsList, responses)
 
     return (
       <div className="App" >
@@ -37,29 +89,41 @@ class App extends React.Component {
           </p>
         </div>
         <div style={{paddingTop:"20px"}}>
-          <Router history={browserHistory}>
-            <Route path="/"  >
-              <IndexRoute component={StartTest} />
-              <Route component={AnimatedPages} >
-                {sections.map((section, idx)=> {
-                  const _nextLink = sections[idx+1] ? sections[idx+1].link : undefined
+
+          <Router >
+            <div>
+              <Navigation />
+              <Match component={StartTest} exactly pattern="/" />
+              <Match
+                pattern="/*"
+                render={({ pathname, pattern }) => {
+
+                  let section;
+                  sections.forEach(s => {
+                    const sub = s.subsections.find(sub => sub.link === pathname)
+                    if(sub)
+                      section = sub
+                  })
+
+                  if(!section)
+                    return <span></span>
+
                   let introduction = "";
                   if(section.tutorial_link)
                     introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
-                  return <Route
-                    key={idx}
-                    path={section.link}
-                    component={generateSection({
-                      ...section,
-                      nextLink:_nextLink,
-                      title: section.label,
-                      introduction
-                    })}
-                  />
-
-                })}
-              </Route>
-            </Route>
+                  return (
+                    <div>
+                      <QuestionSection
+                        {...section}
+                        title={section.label}
+                        introduction={introduction}
+                        onCheckResponse={(id, res) => this.setResponse(id, res)}
+                      />
+                    </div>
+                  )
+                }}
+               />
+            </div>
           </Router>
         </div>
       </div>

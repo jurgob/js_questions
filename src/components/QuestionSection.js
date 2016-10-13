@@ -1,25 +1,25 @@
-import React, {Component} from 'react';
+import React, {Component,PropTypes} from 'react';
 import Question from './Question';
 import LinkButton from './LinkButton'
 
 class QuestionSection extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      questions:this.props.questions
-    }
-  }
-
-  updateQuestionResponse = (idx, response) => {//TODO: use immutability helpers
-
-    let _newQuestions = [...this.state.questions];
-    _newQuestions[idx].response = response;
-    this.setState({questions: _newQuestions})
-  }
+  // constructor(props){
+  //   super(props);
+  //   this.state = {
+  //     questions:this.props.questions
+  //   }
+  // }
+  //
+  // updateQuestionResponse = (idx, response) => {//TODO: use immutability helpers
+  //
+  //   let _newQuestions = [...this.state.questions];
+  //   _newQuestions[idx].response = response;
+  //   this.setState({questions: _newQuestions})
+  // }
 
   render() {
-    const {questions} = this.state;
-    const {title, introduction, nextLink} = this.props;
+    // const {questions} = this.state;
+    const {title, introduction, nextLink,questions,onCheckResponse} = this.props;
 
     return (
         <section style={{textAlign:"left"}} >
@@ -31,8 +31,9 @@ class QuestionSection extends Component {
                 <Question
                   text={(idx+1)+")"}
                   code={question.code}
-                  onCheckResponse={(response) => this.updateQuestionResponse(idx, response)}
+                  onCheckResponse={(id, response) => onCheckResponse(id, response)}
                   response={question.response}
+                  id={question.id}
                 />
               </div>
             ))}
@@ -49,5 +50,14 @@ class QuestionSection extends Component {
     );
   }
 }
+const {string,func,array} = PropTypes;
+QuestionSection.propTypes ={
+  title:string.isRequired,
+  // introduction: oneTypeOf(string, element).isRequired,
+  nextLink: string,
+  questions:array.isRequired,
+  onCheckResponse:func.isRequired,
+}
+
 
 export default QuestionSection

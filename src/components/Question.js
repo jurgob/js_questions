@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Code from './Code'
 
 function formatEval(code){
@@ -27,7 +27,7 @@ function _eval(code){
   return formatEval(logResponse);
 }
 
-const Question = ({code, onCheckResponse, response, text}) => {
+const Question = ({id, code, text, onCheckResponse, response}) => {
 
   const hasResponse = typeof response === 'string' && response !== ''
 
@@ -41,14 +41,14 @@ const Question = ({code, onCheckResponse, response, text}) => {
   return (
     <div>
       <div>
-        <h3>{text}</h3>
+        <h3>{text} -id- {id}</h3>
         <Code>
           {code}
         </Code>
       </div>
       {!responseIsRight && (
         <div style={{border: "1px solid black"}}>
-          <input type="text" onChange={(e) => onCheckResponse(e.target.value)}  />
+          <input type="text" onChange={(e) => onCheckResponse(id, e.target.value)} value={response}   />
         </div>
       )}
       {responseIsRight && (
@@ -66,6 +66,13 @@ const Question = ({code, onCheckResponse, response, text}) => {
 
 }
 
-
+const {string,func} = PropTypes;
+Question.propTypes = {
+  id:string.isRequired,
+  code:string.isRequired,
+  text:string.isRequired,
+  onCheckResponse:func.isRequired,
+  response:string
+}
 
 export default Question;
