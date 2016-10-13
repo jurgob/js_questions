@@ -6,24 +6,7 @@ import QuestionSection from './components/QuestionSection'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import sectionsList from './sectionsList'
-// const flatSection = (sectionsList,responses) => sectionsList
-//   .reduce(
-//     (res,curr,idx) => res.concat(curr.subsections.map((s, sidx) => ({
-//       ...s,
-//       id:idx+"__"+sidx,
-//       questions: s.questions.map((q,qidx) => ({
-//         ...q,
-//         id:idx+"__"+sidx+"__"+qidx,
-//         response:responses[idx+"__"+sidx+"__"+qidx]
-//       }))
-//     }))),
-//     []
-//   )
-
-// const flatSection = (sectionsList,responses) => sectionsList.map((s,idx) => ({
-//
-// }))
-
+import {Layout, MenuCol, ContCol} from './components/Layout2Col'
 
 const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> ({
   ...q,
@@ -92,37 +75,43 @@ class App extends React.Component {
 
           <Router >
             <div>
-              <Navigation />
-              <Match component={StartTest} exactly pattern="/" />
-              <Match
-                pattern="/*"
-                render={({ pathname, pattern }) => {
+            <Layout>
+              <MenuCol width="280px" >
+                <Navigation />
+              </MenuCol>
+              <ContCol>
+                <Match component={StartTest} exactly pattern="/" />
+                <Match
+                  pattern="/*"
+                  render={({ pathname, pattern }) => {
 
-                  let section;
-                  sections.forEach(s => {
-                    const sub = s.subsections.find(sub => sub.link === pathname)
-                    if(sub)
-                      section = sub
-                  })
+                    let section;
+                    sections.forEach(s => {
+                      const sub = s.subsections.find(sub => sub.link === pathname)
+                      if(sub)
+                        section = sub
+                    })
 
-                  if(!section)
-                    return <span></span>
+                    if(!section)
+                      return <span></span>
 
-                  let introduction = "";
-                  if(section.tutorial_link)
-                    introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
-                  return (
-                    <div>
-                      <QuestionSection
-                        {...section}
-                        title={section.label}
-                        introduction={introduction}
-                        onCheckResponse={(id, res) => this.setResponse(id, res)}
-                      />
-                    </div>
-                  )
-                }}
-               />
+                    let introduction = "";
+                    if(section.tutorial_link)
+                      introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
+                    return (
+                      <div>
+                        <QuestionSection
+                          {...section}
+                          title={section.label}
+                          introduction={introduction}
+                          onCheckResponse={(id, res) => this.setResponse(id, res)}
+                        />
+                      </div>
+                    )
+                  }}
+                 />
+                </ContCol>
+              </Layout>
             </div>
           </Router>
         </div>
