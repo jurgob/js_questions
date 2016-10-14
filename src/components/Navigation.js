@@ -31,7 +31,7 @@ const SectionLinks = ({sections}) => (
   <div>
     {sections.map((m, idx) => (
       <div key={idx} >
-        <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >tet{m.label}</Link>
+        <Link to={m.link} style={styles.link}  activeStyle={styles.linkActive}  >{m.label}</Link>
       </div>
     ))}
   </div>

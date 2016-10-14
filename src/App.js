@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
-import StartTest from './components/StartTest'
-import Navigation from './components/Navigation'
-import QuestionSection from './components/QuestionSection'
-import Router from 'react-router/BrowserRouter'
-import Match from 'react-router/Match'
+import Sections from './components/Sections'
+
+
 import sectionsList from './sectionsList'
-import {Layout, MenuCol, ContCol} from './components/Layout2Col'
+
 
 const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> ({
   ...q,
@@ -71,53 +69,13 @@ class App extends React.Component {
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
           </p>
         </div>
-        <div style={{paddingTop:"20px"}}>
-
-          <Router >
-            <div>
-            <Layout>
-              <MenuCol width="280px" >
-                <Navigation />
-              </MenuCol>
-              <ContCol>
-                <Match component={StartTest} exactly pattern="/" />
-                <Match
-                  pattern="/*"
-                  render={({ pathname, pattern }) => {
-
-                    let section;
-                    sections.forEach(s => {
-                      const sub = s.subsections.find(sub => sub.link === pathname)
-                      if(sub)
-                        section = sub
-                    })
-
-                    if(!section)
-                      return <span></span>
-
-                    let introduction = "";
-                    if(section.tutorial_link)
-                      introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
-                    return (
-                      <div>
-                        <QuestionSection
-                          {...section}
-                          title={section.label}
-                          introduction={introduction}
-                          onCheckResponse={(id, res) => this.setResponse(id, res)}
-                        />
-                      </div>
-                    )
-                  }}
-                 />
-                </ContCol>
-              </Layout>
-            </div>
-          </Router>
-        </div>
+        <Sections sections={sections} setResponse={this.setResponse} />
       </div>
     )
   }
 }
+
+
+
 
 export default App;
