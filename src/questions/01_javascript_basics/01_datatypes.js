@@ -1,4 +1,4 @@
-export default [
+const questions = [
   {
     text:"default assignment",
     code :"var a; log(a);"
@@ -28,3 +28,9 @@ export default [
     code :"var a = typeof(5); log(a);"
   },
 ]
+
+export default {
+  label:"Data Types",
+  link:"/datatypes",
+  questions
+}

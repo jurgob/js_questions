@@ -9,7 +9,7 @@ const warmUp2ShareCode = `
   var obj3 = obj1
 `
 
-export default [
+const questions = [
   {
     text:"1) some integer assignment",
     code :"var a = 5; var b = a; b = 6; log(a)//?"
@@ -74,5 +74,10 @@ export default [
       log(obj2.myProp)
     `
   }
-
 ]
+
+export default {
+  label:"Some Warm Up",
+  link:"/warmup",
+  questions
+}

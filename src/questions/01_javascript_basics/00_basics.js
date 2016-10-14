@@ -1,4 +1,4 @@
-export default [
+const questions = [
   {
     text:"1) some string question",
     code :'var a = "- hello".slice(2,-1); log(a)'
@@ -33,3 +33,10 @@ export default [
 
 
 ]
+
+export default {
+  label:"Basics",
+  link:"/basics",
+  questions,
+  tutorial_link:"http://xahlee.info/js/javascript_basics.html"
+}

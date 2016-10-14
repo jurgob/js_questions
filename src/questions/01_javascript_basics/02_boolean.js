@@ -1,4 +1,4 @@
-export default [
+const questions = [
   {
     text:"boolean creation",
     code :"var a = Boolean(0); log(a);"
@@ -67,3 +67,9 @@ export default [
   },
 
 ]
+
+export default {
+  label:"Boolean",
+  link:"/boolean",
+  questions
+}

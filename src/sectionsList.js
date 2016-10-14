@@ -7,37 +7,17 @@ export default [
   {
     title:"Warm Up",
     subsections:[
-      {
-        label:"How to responde",
-        link:"/how_to_responde",
-        questions:require('./questions/00_warmup/00_how_to_responde').default,
-      },
-      {
-        label:"Some Warm Up",
-        link:"/warmup",
-        questions:require('./questions/00_warmup/01_warmup').default,
-      },
+      require('./questions/00_warmup/00_how_to_responde').default,
+      require('./questions/00_warmup/01_warmup').default
     ]
   },
   {
     title:"Javascript Basics",
     subsections:[
-      {
-        label:"Basics",
-        link:"/basics",
-        questions:require('./questions/01_javascript_basics/00_basics').default,
-        tutorial_link:"http://xahlee.info/js/javascript_basics.html"
-      },
-      {
-        label:"Data Types",
-        link:"/datatypes",
-        questions:require('./questions/01_javascript_basics/01_datatypes').default
-      },
-      {
-        label:"Boolean",
-        link:"/boolean",
-        questions:require('./questions/01_javascript_basics/02_boolean').default
-      }
+      require('./questions/01_javascript_basics/00_basics').default,
+      require('./questions/01_javascript_basics/01_datatypes').default,
+      require('./questions/01_javascript_basics/02_boolean').default
+      
     ]
 
   }
