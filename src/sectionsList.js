@@ -10,12 +10,12 @@ export default [
       {
         label:"How to responde",
         link:"/how_to_responde",
-        questions:require('./questions/warmup/how_to_responde').default,
+        questions:require('./questions/00_warmup/00_how_to_responde').default,
       },
       {
         label:"Some Warm Up",
         link:"/warmup",
-        questions:require('./questions/warmup/warmup').default,
+        questions:require('./questions/00_warmup/01_warmup').default,
       },
     ]
   },
@@ -25,18 +25,18 @@ export default [
       {
         label:"Basics",
         link:"/basics",
-        questions:require('./questions/basics').default,
+        questions:require('./questions/01_javascript_basics/00_basics').default,
         tutorial_link:"http://xahlee.info/js/javascript_basics.html"
       },
       {
         label:"Data Types",
         link:"/datatypes",
-        questions:require('./questions/datatypes').default
+        questions:require('./questions/01_javascript_basics/01_datatypes').default
       },
       {
         label:"Boolean",
         link:"/boolean",
-        questions:require('./questions/boolean').default
+        questions:require('./questions/01_javascript_basics/02_boolean').default
       }
     ]
 

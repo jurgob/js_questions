@@ -48,7 +48,7 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
       </div>
       {!responseIsRight && (
         <div style={{border: "1px solid black"}}>
-          <input type="text" onChange={(e) => onCheckResponse(id, e.target.value)} value={response}   />
+          <input type="text" onChange={(e) => onCheckResponse(id, e.target.value)} value={response ? response :""}   />
         </div>
       )}
       {responseIsRight && (

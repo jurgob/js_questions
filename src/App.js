@@ -4,7 +4,7 @@ import Sections from './components/Sections'
 
 
 import sectionsList from './sectionsList'
-
+const localStorage = window.localStorage
 
 const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> ({
   ...q,
@@ -20,13 +20,6 @@ const flatSection = (sectionsList,responses) => sectionsList.map((s, idx) => ({
   }) )
 }))
 
-console.log('sections ',flatSection(sectionsList, {}))
-
-
-// const generateSection = (props) => {
-//   return (_propsFromRoute) => <div><QuestionSection {...{ _propsFromRoute, ...props  }}  /></div>
-// }
-
 
 class App extends React.Component {
   constructor(props){
@@ -37,14 +30,27 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    const responses = localStorage.getItem("responses")
+    if(responses) {
+      this.setState({
+        responses:JSON.parse(responses)
+      })
+    }
+  }
+
   setResponse = (id, response) => {
-    console.log('id: ',id)
+    const responses = {
+      ...this.state.responses,
+      [id]:response
+    }
+
     this.setState({
-      responses: {
-        ...this.state.responses,
-        [id]:response
-      }
+      responses: responses
     })
+
+    localStorage.setItem("responses",JSON.stringify(responses))
+
     console.log('response ',response)
     console.log('this.state.responses ', this.state.responses )
 
