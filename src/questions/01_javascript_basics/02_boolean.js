@@ -71,5 +71,6 @@ const questions = [
 export default {
   label:"Boolean",
   link:"/boolean",
-  questions
+  questions,
+  tutorial_link:"http://xahlee.info/js/javascript_boolean.html"
 }

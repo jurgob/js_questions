@@ -55,9 +55,6 @@ class App extends React.Component {
 
     localStorage.setItem("responses",JSON.stringify(responses))
 
-    console.log('response ',response)
-    console.log('this.state.responses ', this.state.responses )
-
   }
 
   render(){

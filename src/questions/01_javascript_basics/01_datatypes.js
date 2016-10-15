@@ -32,5 +32,6 @@ const questions = [
 export default {
   label:"Data Types",
   link:"/datatypes",
-  questions
+  questions,
+  tutorial_link:"http://xahlee.info/js/javascript_datatypes.html"
 }

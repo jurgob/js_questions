@@ -17,7 +17,11 @@ export default [
     subsections: require('./questions/01_javascript_basics').default,
   },
   {
-    title:"Functional Programming in Javascript",
+    title:"Function",
     subsections: require('./questions/02_function').default,
+  },
+  {
+    title:"Properties",
+    subsections: require('./questions/03_properties').default,
   }
 ]

@@ -72,7 +72,8 @@ const questions = [
 ]
 
 export default {
-  label:"Functional Programming in Javascript",
+  label:"Functional Programming",
   link:"/functionalprogramming",
-  questions
+  questions,
+  tutorial_link:"http://xahlee.info/js/javascript_lang_fun.html"
 }

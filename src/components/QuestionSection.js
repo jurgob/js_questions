@@ -26,6 +26,12 @@ class QuestionSection extends Component {
           <h1>{title}</h1>
           <div>{introduction}</div>
           <div  className="questions"  >
+            {!questions.length && (
+              <div style={{padding:"15px 0"}} >
+                <div><b>No questions for this section!</b></div>
+                <span>Go to the next one</span>
+              </div>
+            ) }
             {questions.map( (question, idx) => (
               <div key={idx} style={{borderBottom: "1px solid #ddd", paddingBottom:"10px"}} >
                 <Question
