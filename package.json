@@ -10,6 +10,7 @@
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-ga": "^2.1.2",
     "react-router": "^4.0.0-alpha.4",
     "react-syntax-highlighter": "^2.9.0",
     "sha1": "^1.1.1"
