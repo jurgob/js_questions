@@ -62,6 +62,11 @@ class App extends React.Component {
 
     const sections = flatSection(sectionsList, responses)
 
+    const responsesLength = Object.keys(responses).length
+
+    let questionsTot = 0
+    sectionsList.forEach( s => s.subsections.forEach(sub => questionsTot += sub.questions.length   ) )
+
     return (
       <div className="App" >
         <div className="App-header">
@@ -75,6 +80,9 @@ class App extends React.Component {
           <p>
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
           </p>
+        </div>
+        <div style={{padding: "5px", textAlign:"left"}} >
+          Respones: { responsesLength} / {questionsTot}
         </div>
         <Sections sections={sections} setResponse={this.setResponse} />
       </div>

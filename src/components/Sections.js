@@ -8,8 +8,7 @@ import Match from 'react-router/Match'
 
 
 const Sections = ({sections,setResponse}) => (
-  <div style={{paddingTop:"20px"}}>
-
+  <div >
     <Router >
       <div>
       <Layout>
