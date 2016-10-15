@@ -2,6 +2,10 @@
 // import Basics from './components/sections/Basics'
 // import DataTypes from './components/sections/DataTypes'
 // import BooleanSection from './components/sections/Boolean'
+// import requireDir from 'require-dir'
+// var requireDir = require('require-dir');
+// const warmUpSubs = requireDir('./questions/00_warmup')
+
 
 export default [
   {
@@ -17,7 +21,7 @@ export default [
       require('./questions/01_javascript_basics/00_basics').default,
       require('./questions/01_javascript_basics/01_datatypes').default,
       require('./questions/01_javascript_basics/02_boolean').default
-      
+
     ]
 
   }
