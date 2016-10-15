@@ -8,20 +8,11 @@
 
 
 export default [
-  {
-    title:"Warm Up",
-    subsections:require('./questions/00_warmup').default,
-  },
-  {
-    title:"Javascript Basics",
-    subsections: require('./questions/01_javascript_basics').default,
-  },
-  {
-    title:"Function",
-    subsections: require('./questions/02_function').default,
-  },
-  {
-    title:"Properties",
-    subsections: require('./questions/03_properties').default,
-  }
+  require('./questions/00_warmup').default,
+  require('./questions/01_javascript_basics').default,
+  require('./questions/02_function').default,
+  require('./questions/03_properties').default,
+  require('./questions/04_object_inheritance').default,
+  require('./questions/05_array').default,
+  require('./questions/06_javascript_OOP').default,
 ]
