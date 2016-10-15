@@ -10,20 +10,11 @@
 export default [
   {
     title:"Warm Up",
-    subsections:[
-      require('./questions/00_warmup/00_how_to_responde').default,
-      require('./questions/00_warmup/01_warmup').default
-    ]
+    subsections:require('./questions/00_warmup').default,
   },
   {
     title:"Javascript Basics",
-    subsections:[
-      require('./questions/01_javascript_basics/00_basics').default,
-      require('./questions/01_javascript_basics/01_datatypes').default,
-      require('./questions/01_javascript_basics/02_boolean').default
-
-    ]
-
+    subsections: require('./questions/01_javascript_basics').default,
   }
 
   // {
