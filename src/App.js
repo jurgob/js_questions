@@ -2,15 +2,19 @@ import React from 'react';
 import './App.css';
 import Sections from './components/Sections'
 
-
+import sha1 from 'sha1';
 import sectionsList from './sectionsList'
 const localStorage = window.localStorage
 
-const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> ({
-  ...q,
-  id:key+"__"+idx,
-  response: responses[key+"__"+idx]
-}))
+const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> {
+  const id = sha1(q.code)
+  return {
+    ...q,
+    id,
+    response: responses[id]
+  }
+
+})
 
 const flatSection = (sectionsList,responses) => sectionsList.map((s, idx) => ({
   ...s,
