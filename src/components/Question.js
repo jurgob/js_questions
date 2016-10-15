@@ -41,7 +41,7 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
   return (
     <div>
       <div>
-        <h3>{text} -id- {id}</h3>
+        <h3>{text}</h3>
         <Code>
           {code}
         </Code>
