@@ -48,9 +48,7 @@ const XhleeMatch = ({sections,setResponse}) => (
 
 const Sections = ({sections,setResponse}) => (
   <div >
-    {process.env.REACT_APP_JSQUEST_UA}
     <Router
-
     >
       {() => {
         logPageView()

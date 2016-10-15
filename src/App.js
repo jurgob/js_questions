@@ -82,7 +82,7 @@ class App extends React.Component {
           </p>
         </div>
         <div style={{padding: "5px", textAlign:"left"}} >
-          Respones: { responsesLength} / {questionsTot}
+          <b>Respones: { responsesLength} / {questionsTot}</b>
         </div>
         <Sections sections={sections} setResponse={this.setResponse} />
       </div>
