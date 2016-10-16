@@ -25,6 +25,12 @@ const flatSection = (sectionsList,responses) => sectionsList.map((s, idx) => ({
   }) )
 }))
 
+function getQuestionsTot(sectionsList){
+  let questionsTot = 0
+  sectionsList.forEach( s => s.subsections.forEach(sub => questionsTot += sub.questions.length   ) )
+  return questionsTot;
+}
+
 
 class App extends React.Component {
   constructor(props){
@@ -37,6 +43,12 @@ class App extends React.Component {
 
   componentDidMount(){
     const responses = localStorage.getItem("responses")
+    // const lastAccessQuestionsTot = JSON.parse(localStorage.getItem("questionsTot"))
+
+    const questionsTot = getQuestionsTot(sectionsList);
+    localStorage.setItem("questionsTot",JSON.stringify(questionsTot))
+
+
     if(responses) {
       this.setState({
         responses:JSON.parse(responses)
@@ -65,8 +77,8 @@ class App extends React.Component {
 
     const responsesLength = Object.keys(responses).length
 
-    let questionsTot = 0
-    sectionsList.forEach( s => s.subsections.forEach(sub => questionsTot += sub.questions.length   ) )
+
+    const questionsTot = getQuestionsTot(sectionsList);
 
     return (
       <div className="App" >
