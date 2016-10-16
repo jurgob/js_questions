@@ -5,7 +5,6 @@ class _Layout extends React.Component{
 
   render(){
     const {children,containerQuery} = this.props;
-    console.log(children[1].props.children)
     return (
       <div >
         <div >
