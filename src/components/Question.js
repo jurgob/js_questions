@@ -47,7 +47,7 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
         </Code>
       </div>
       {!responseIsRight && (
-        <div style={{border: "1px solid black"}}>
+        <div style={{border: "1px solid #ccc"}}>
           <form
             onSubmit={(e)=>{
               e.preventDefault();
@@ -55,9 +55,34 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
             }}
         >
 
-            <input type="text" name="response" placeholder={response ? response :""}   />
+            <input
+              type="text"
+              name="response"
+              placeholder={response ? response :""}
+              style={{
+                width:"98%",
+                marginRight:"-5px",
+                border:"none",
+                fontSize:"14px",
+                height:"20px",
+                display:"inline-block"
+              }}
+            />
 
-            <input type="submit" value="Check" />
+            <input
+              style={{
+                position:"absolute",
+                right:"5px",
+                backgroundColor:"black",
+                color:"white",
+                border:"none",
+                margin:"0",
+                fontSize:"16px",
+                height:"22px",
+              }}
+              type="submit"
+              value="Check"
+            />
           </form>
         </div>
       )}
