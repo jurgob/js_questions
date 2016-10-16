@@ -20,10 +20,19 @@ const XhleeMatch = ({sections,setResponse}) => (
     render={({ pathname, pattern }) => {
 
       let section;
-      sections.forEach(s => {
-        const sub = s.subsections.find(sub => sub.link === pathname)
-        if(sub)
-          section = sub
+      let nextLink;
+      sections.forEach((s,i) => {
+        const subIdx = s.subsections.findIndex(sub => sub.link === pathname)
+        if(subIdx !== -1){
+          section = s.subsections[subIdx];
+
+          if(s.subsections[subIdx+1])
+            nextLink = s.subsections[subIdx+1].link
+          else if( sections[i+1] && sections[i+1].subsections[0]  )
+            nextLink = sections[i+1].subsections[0].link
+
+        }
+
       })
 
       if(!section)
@@ -32,6 +41,7 @@ const XhleeMatch = ({sections,setResponse}) => (
       let introduction = "";
       if(section.tutorial_link)
         introduction = (<span> Read more about {section.label} here: <a href={section.tutorial_link} > xahlee.info {section.label} section</a>  </span>)
+
       return (
         <div>
           <QuestionSection
@@ -39,6 +49,7 @@ const XhleeMatch = ({sections,setResponse}) => (
             title={section.label}
             introduction={introduction}
             onCheckResponse={(id, res) => setResponse(id, res)}
+            nextLink={nextLink}
           />
         </div>
       )
