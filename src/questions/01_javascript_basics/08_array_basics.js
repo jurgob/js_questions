@@ -6,7 +6,28 @@ const questions = [
 
       log(arr);
     `
+  },
+  {
+    code: `
+      log([0,undefined,1].length);
+    `
+  },
+  {
+    code: `
+      log([0,1,undefined].length);
+    `
+  },
+  {
+    code: `
+      log([ 'zero', 'one', , 'more' ].length);
+    `
+  },
+  {
+    code: `
+      log([1,2, , 4 ]);
+    `
   }
+
 ]
 
 export default {
