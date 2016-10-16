@@ -1,10 +1,24 @@
 import React from 'react';
+import applyBreakPoints from '../applyBreakPoints'
 
-export const Layout = ({children}) => (
-  <div style={{display:"table"}}  >
-    {children}
-  </div>
-)
+class _Layout extends React.Component{
+
+  render(){
+    const {children,containerQuery} = this.props;
+    console.log(containerQuery)
+    return (
+      <div >
+        <div style={{display:"table"}} >
+          {(containerQuery.medium || containerQuery.large ) &&  children[0]}
+          {children[1]}
+        </div>
+      </div>
+    )
+  }
+
+}
+
+export const Layout = applyBreakPoints(_Layout)
 
 export const MenuCol = ({children, width, style}) => (
   <div style={{

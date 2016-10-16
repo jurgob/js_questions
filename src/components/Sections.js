@@ -54,13 +54,17 @@ const Sections = ({sections,setResponse}) => (
         logPageView()
         return (
           <div>
-          <Layout>
-            <MenuCol width="280px" >
-              <Navigation />
-            </MenuCol>
-            <ContCol>
-              <Match component={StartTest} exactly pattern="/"  />
-              <XhleeMatch {...{sections,setResponse}} />
+            <Layout>
+              <MenuCol width="280px" >
+                <div style={{padding:"5px"}}>
+                  <Navigation />
+                </div>
+              </MenuCol>
+              <ContCol>
+                <div style={{padding:"5px"}}>
+                  <Match component={StartTest} exactly pattern="/"  />
+                  <XhleeMatch {...{sections,setResponse}} />
+                </div>
               </ContCol>
             </Layout>
           </div>
