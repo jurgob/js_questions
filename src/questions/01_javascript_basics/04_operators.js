@@ -8,6 +8,8 @@ const questions = [
   },
   {
     code: `
+      var b;
+      var c;
       function a(b,c){ return b + c  }
       var res = a( (b = 5), (c = 6)  );
       log(res)
@@ -15,6 +17,7 @@ const questions = [
   },
   {
     code: `
+      var y;
       var x = (y = 5);
       log(x);
     `
