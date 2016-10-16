@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'react-select-plus/dist/react-select-plus.css';
 import Sections from './components/Sections'
 
 import sha1 from 'sha1';

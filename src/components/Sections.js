@@ -1,11 +1,12 @@
 import React from 'react';
 import StartTest from './StartTest'
 import Navigation from './Navigation'
+import NavigationMobile from './NavigationMobile'
 import QuestionSection from './QuestionSection'
 import {Layout, MenuCol, ContCol} from './Layout2Col'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
-
+import applyBreakPoints from '../applyBreakPoints'
 import  ReactGA from 'react-ga';
 ReactGA.initialize(process.env.REACT_APP_JSQUEST_UA);
 
@@ -57,14 +58,20 @@ const XhleeMatch = ({sections,setResponse}) => (
    />
 )
 
-const Sections = ({sections,setResponse}) => (
+const Sections = ({sections,setResponse,containerQuery}) => (
   <div >
     <Router
     >
-      {() => {
+      {({action, location, router}) => {
+        const showMobileNav = containerQuery.xsmall || containerQuery.small
         logPageView()
         return (
           <div>
+            {showMobileNav && (
+              <div style={{margin:"5px 5px "}}>
+                <NavigationMobile curPath={location.pathname} onPathChange={(path) => {router.transitionTo(path)  } } />
+              </div>
+            )}
             <Layout>
               <MenuCol width="280px" >
                 <div style={{padding:"5px"}}>
@@ -78,6 +85,11 @@ const Sections = ({sections,setResponse}) => (
                 </div>
               </ContCol>
             </Layout>
+            {showMobileNav && (
+              <div style={{margin:"15px 5px "}} >
+                <NavigationMobile curPath={location.pathname} onPathChange={(path) => {router.transitionTo(path)  } } />
+              </div>
+            )}
           </div>
         )
       }}
@@ -86,4 +98,4 @@ const Sections = ({sections,setResponse}) => (
   </div>
 )
 
-export default Sections
+export default applyBreakPoints(Sections)

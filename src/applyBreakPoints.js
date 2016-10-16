@@ -1,3 +1,4 @@
+import React from 'react'
 import {applyContainerQuery} from 'react-container-query'
 
 const query = {
@@ -20,5 +21,14 @@ const query = {
 };
 
 export default function applyBreakPoints(Comp) {
-  return applyContainerQuery(Comp,query)
+  const CompClass = React.createClass({
+    render: function() {
+      return (
+        <Comp {...this.props} />
+      );
+    }
+  });
+  CompClass.displayName = Comp.displayName
+
+  return applyContainerQuery(CompClass,query)
 }
