@@ -48,7 +48,17 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
       </div>
       {!responseIsRight && (
         <div style={{border: "1px solid black"}}>
-          <input type="text" onChange={(e) => onCheckResponse(id, e.target.value)} value={response ? response :""}   />
+          <form
+            onSubmit={(e)=>{
+              e.preventDefault();
+              onCheckResponse(id, e.target.response.value)
+            }}
+        >
+
+            <input type="text" name="response" placeholder={response ? response :""}   />
+
+            <input type="submit" value="Check" />
+          </form>
         </div>
       )}
       {responseIsRight && (

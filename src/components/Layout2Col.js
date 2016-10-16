@@ -5,12 +5,14 @@ class _Layout extends React.Component{
 
   render(){
     const {children,containerQuery} = this.props;
-    console.log(containerQuery)
+    console.log(children[1].props.children)
     return (
       <div >
-        <div style={{display:"table"}} >
-          {(containerQuery.medium || containerQuery.large ) &&  children[0]}
-          {children[1]}
+        <div >
+
+          {(containerQuery.medium || containerQuery.large ) &&  children}
+
+          {(containerQuery.xsmall || containerQuery.small ) &&  children[1].props.children}
         </div>
       </div>
     )
