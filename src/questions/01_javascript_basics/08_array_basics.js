@@ -1,5 +1,12 @@
 const questions = [
+  {
+    code: `
+      var arr = [];
+      for (var i = 1; i <= 3; i++) { arr.push(i); }
 
+      log(arr);
+    `
+  }
 ]
 
 export default {

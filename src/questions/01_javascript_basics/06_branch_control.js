@@ -1,5 +1,55 @@
 const questions = [
+  {
+    code:`
+      var x = 1;
 
+      switch(x) {
+        case "w":
+            x += "1";
+        case 32:
+            x += "2";
+        case 40:
+            x += "7";
+        default:
+            x += "3";
+      }
+
+      log(x)
+    `
+  },
+  {
+    code:`
+      var x = 1;
+      switch(x) {
+        case "w":
+            x += "1";
+        case "1":
+            x += "2";
+        case 40:
+            x += "7";
+        default:
+            x += "3";
+      }
+
+      log(x)
+    `
+  },
+  {
+    code:`
+      var x = 1;
+      switch(x) {
+        case 1:
+            x += "1";
+        case "1":
+            x += "2";
+        case 2:
+            x += "7";
+        default:
+            x += "3";
+      }
+      log(x)
+    `
+  }
 ]
 
 export default {
