@@ -47,9 +47,11 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
     <div>
       <div>
         <h3>{text}</h3>
-        <Code>
-          {code}
-        </Code>
+        <div style={{paddingBottom:"15px"}} >
+          <Code>
+            {code}
+          </Code>
+        </div>
       </div>
       {!responseIsRight && (
         <div style={{border: "1px solid #ccc", position:"relative"}}>

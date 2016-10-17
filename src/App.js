@@ -84,15 +84,15 @@ class App extends React.Component {
       <div className="App" >
         <div className="App-header">
           <h2>Javascript Questions</h2>
-          <p>
+          <HeaderLine>
             This is a little test about your javascript ability. Write down in the inputs what the <code>log()</code> function will print
-          </p>
-          <p>
+          </HeaderLine>
+          <HeaderLine>
             <b>note:</b> if the result is a string , wrap your response with double quote: <code>false</code> will be a bolean, <code>"false"</code> will be a string.
-          </p>
-          <p>
+          </HeaderLine>
+          <HeaderLine>
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
-          </p>
+          </HeaderLine>
         </div>
         <div style={{padding: "5px", textAlign:"left"}} >
           <b>Respones: { responsesLength} / {questionsTot}</b>
@@ -103,7 +103,7 @@ class App extends React.Component {
   }
 }
 
-
+const HeaderLine = ({children}) => <p style={{lineHeigth:"140%", display:"block", paddingBottom:"5px"}} > {children}</p>
 
 
 export default App;
