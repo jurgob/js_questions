@@ -38,6 +38,11 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
     hasResponse &&
     solution === formatEval(safeEval(response))
 
+  const styleVars = {
+    h: 26,
+    get height() { return this.h+"px"  }
+  }
+
   return (
     <div>
       <div>
@@ -65,8 +70,8 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
                 marginRight:"-5px",
                 border:"none",
                 fontSize:"14px",
-                lineHeigth:"24px",
-                height:"24px",
+                lineHeigth:styleVars.height,
+                height:styleVars.height,
                 display:"block",
                 padding:"0px"
               }}
@@ -78,12 +83,12 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
                 top:"0px",
                 right:"0px",
                 fontSize:"16px",
-                height:"24px",
+                height:styleVars.height,
                 margin:"0",
                 display:"block",
                 "webkitAppearance": "none",
                 borderRadius:"0",
-                lineHeigth:"20px",
+                lineHeigth:styleVars.height,
                 backgroundColor:"black",
                 color:"white",
                 border:"none",
