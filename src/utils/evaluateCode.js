@@ -25,10 +25,23 @@ export function formatEval(code){
 function evaluateCode(code){
   let logResponse ="";
   const log = function(l){ logResponse=l }
-  /*const context = {
+
+  /* attemp A
+    const context = {
+      log
+    }
+    cons sCode = code // replace all "function a(){}"" with "a=a.bind(this);function a(){} "
+    new Function("window", "with(window){" + sCode + "}")({});
+  */
+
+  /* attemp VM
+
+    const context = {
     log
-  }
-  vm.runInNewContext(code, context)*/
+    }
+    vm.runInNewContext(code, context)
+    */
+
   eval(code)
 
   return formatEval(logResponse);
