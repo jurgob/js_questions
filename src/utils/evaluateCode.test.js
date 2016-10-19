@@ -81,7 +81,6 @@ it('arrayDiff ', () => {
     [3,4]
   )
 
-  // console.log(Object.keys(window))
 
   expect(
     window['res']
@@ -89,6 +88,23 @@ it('arrayDiff ', () => {
     undefined
   )
 
+});
+
+it('evaluate this in object obj.myFunc()', () => {
+  const evaluated = evaluateCode(`
+    var obj = {
+      res : 5
+    }
+    var a = function a(){ return this.res  }
+    obj.myFunc = a
+    log(obj.myFunc())
+  `)
+  const res = formatEval( 5 )
+  expect(
+    evaluated
+  ).toBe(
+    res
+  )
 });
 
 
@@ -108,24 +124,48 @@ it('evaluate .call  function ', () => {
   )
 });
 
-// it(' function this = window ', () => {
-//   const evaluated = evaluateCode(`
-//     var res = 5
-//
-//     function a(){ return this.res }
-//     log(a())
-//   `)
-//   const res = formatEval( 5 )
-//   expect(
-//     evaluated
-//   ).toBe(
-//     res
-//   )
-//
-//   expect(
-//     window['res']
-//   ).toBe(
-//     undefined
-//   )
-//
-// });
+it(' function this = window with res = 5;', () => {
+  const evaluated = evaluateCode(`
+    res = 5;
+    function a(){ return this.res }
+    log(a())
+  `)
+  const res = formatEval( 5 )
+  expect(
+    evaluated
+  ).toBe(
+    res
+  )
+
+});
+
+it(' env should be clear after the execution', () => {
+  expect(
+    window['res']
+  ).toBe(
+    undefined
+  )
+});
+
+
+it(' function this = window with var res = 5;', () => {
+  const evaluated = evaluateCode(`
+    var res = 5;
+    function a(){ return this.res }
+    log(a())
+  `)
+  const res = formatEval( 5 )
+  expect(
+    evaluated
+  ).toBe(
+    res
+  )
+});
+
+it(' env should be clear after the execution', () => {
+  expect(
+    window['res']
+  ).toBe(
+    undefined
+  )
+});

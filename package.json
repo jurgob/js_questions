@@ -15,7 +15,8 @@
     "react-router": "^4.0.0-alpha.4",
     "react-select-plus": "^1.0.0-rc.1.patch1",
     "react-syntax-highlighter": "^2.9.0",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "vm-shim": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
