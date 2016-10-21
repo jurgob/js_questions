@@ -9,6 +9,7 @@ const questions = [
             var n = 4;
         }
       }
+      f()
     `
   },
   {
@@ -21,6 +22,7 @@ const questions = [
         }
         log(n);
       }
+      f()
     `
   },
   {
@@ -32,6 +34,7 @@ const questions = [
             var n = 4;
         }
       }
+      f();
       log(n)
     `
   },
