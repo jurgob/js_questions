@@ -16,11 +16,12 @@
     "react-select-plus": "^1.0.0-rc.1.patch1",
     "react-syntax-highlighter": "^2.9.0",
     "sha1": "^1.1.1",
+    "sw-precache": "^4.2.1",
     "vm-shim": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp manifest.json build/ && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)' --navigate-fallback='index.html'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
