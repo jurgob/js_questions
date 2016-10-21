@@ -48,6 +48,7 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
       <div>
         <h3>{text}</h3>
         <div style={{paddingBottom:"15px"}} >
+          {/* solution: {solution} */}
           <Code>
             {code}
           </Code>
@@ -61,7 +62,6 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
               onCheckResponse(id, e.target.response.value)
             }}
         >
-
             <input
               type="text"
               name="response"

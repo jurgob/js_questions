@@ -57,7 +57,8 @@ const questions = [
       function f(n) {
         return function (x) { return (n + " and " + x ); };
       }
-      log( f(3) )
+      var f1 = f(3)
+      log( f1(3) )
     `
   },
   {
