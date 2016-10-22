@@ -1,18 +1,31 @@
 import React from 'react';
 import './App.css';
-import 'react-select-plus/dist/react-select-plus.css';
 import Sections from './components/Sections'
+import evaluateCode from './utils/evaluateCode'
 
 import sha1 from 'sha1';
 import sectionsList from './sectionsList'
 const localStorage = window.localStorage
 
+
+// evaluateCode(q.code)
 const prepareQuestions = (questions, responses, key) => questions.map((q,idx)=> {
-  const id = sha1(q.code)
+  const id = sha1(q.code);
+  let solution = q.solution
+  try{
+    if(typeof solution !== 'string' )
+      solution = evaluateCode(q.code)
+  }catch(e){
+
+    console.warn('eval rise an error! code: ', q.code);
+    console.warn('error: ', e);
+  }
+
   return {
     ...q,
     id,
-    response: responses[id]
+    response: responses[id],
+    solution: solution,
   }
 
 })

@@ -1,7 +1,6 @@
 import React from 'react';
 // import Link from 'react-router/Link'
 import sectionsList from '../sectionsList';
-import Select from 'react-select-plus';
 
 
 

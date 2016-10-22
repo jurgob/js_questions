@@ -1,37 +1,38 @@
 import React, {PropTypes} from 'react'
 import Code from './Code'
+import {formatEval, safeEval} from '../utils/evaluateCode'
 
-function formatEval(code){
-  if(code === undefined)
-    code = "undefined"
-  else
-    code = JSON.stringify(code)
+// function formatEval(code){
+//   if(code === undefined)
+//     code = "undefined"
+//   else
+//     code = JSON.stringify(code)
+//
+//   return code
+// }
+//
+// function safeEval(code){
+//   try{
+//     return eval(code)
+//   }catch(e){
+//     return e.message
+//   }
+// }
+//
+// function _eval(code){
+  // let logResponse ="";
+  // const log = function(l){ logResponse=l }
+  // _eval.log = log;
+  // eval(code)
+  //
+  // return formatEval(logResponse);
+// }
 
-  return code
-}
-
-function safeEval(code){
-  try{
-    return eval(code)
-  }catch(e){
-    return e.message
-  }
-}
-
-function _eval(code){
-  let logResponse ="";
-  const log = function(l){ logResponse=l }
-  _eval.log = log;
-  eval(code)
-
-  return formatEval(logResponse);
-}
-
-const Question = ({id, code, text, onCheckResponse, response}) => {
+const Question = ({id, code, text, onCheckResponse, response, solution}) => {
 
   const hasResponse = typeof response === 'string' && response !== ''
 
-  const solution = _eval(code)
+  // const solution = _eval(code)
 
 
   const responseIsRight =
@@ -65,11 +66,11 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
             <input
               type="text"
               name="response"
-              autocorrect="off" autocapitalize="none"
+              autoCorrect="off" autoCapitalize="none"
               placeholder={response ? response :""}
               style={{
                 width:"98%",
-                "webkitAppearance": "none",
+                "WebkitAppearance": "none",
                 marginRight:"-5px",
                 border:"none",
                 fontSize:"14px",
@@ -89,7 +90,7 @@ const Question = ({id, code, text, onCheckResponse, response}) => {
                 height:styleVars.height,
                 margin:"0",
                 display:"block",
-                "webkitAppearance": "none",
+                "WebkitAppearance": "none",
                 borderRadius:"0",
                 lineHeigth:styleVars.height,
                 backgroundColor:"black",

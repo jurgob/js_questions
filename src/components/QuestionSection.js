@@ -40,6 +40,7 @@ class QuestionSection extends Component {
                   onCheckResponse={(id, response) => onCheckResponse(id, response)}
                   response={question.response}
                   id={question.id}
+                  solution={question.solution}
                 />
               </div>
             ))}

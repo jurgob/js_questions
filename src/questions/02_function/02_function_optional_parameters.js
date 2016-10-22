@@ -20,7 +20,7 @@ const questions = [
         return x + y;
       }
       function f(x){
-        return ”jimmy”;
+        return "jimmy";
       }
       log( f(3,5) )
     `

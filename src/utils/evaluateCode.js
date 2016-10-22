@@ -1,15 +1,13 @@
-import vm from 'vm-shim';
+// import vm from 'vm-shim';
 
-if (!Array.prototype.contains) {
-    Array.prototype.contains = function(s) {
-        return this.indexOf(s) > -1
-    }
+
+export function safeEval(code){
+  try{
+    return eval(code)
+  }catch(e){
+    return e.message
+  }
 }
-
-export function  arrayDiff(current, compare) {
-    return current.filter((elem) =>  !compare.contains(elem) )
-}
-
 
 export function formatEval(code){
   if(code === undefined)
@@ -25,7 +23,7 @@ export function formatEval(code){
 function evaluateCode(code){
   let logResponse ="";
   const log = function(l){ logResponse=l }
-
+  evaluateCode.log = log;
   /* attemp A
     const context = {
       log
