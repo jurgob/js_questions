@@ -66,7 +66,7 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
             <input
               type="text"
               name="response"
-              autoCorrect="off" autoCapitalize="none"
+              autoCorrect={false} autoCapitalize="off"
               placeholder={response ? response :""}
               style={{
                 width:"98%",
