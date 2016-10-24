@@ -43,6 +43,13 @@ const questions = [
       log(f([0,1,2],1))
     `
   },
+  {
+    code: `
+      ${shareCode}
+      log(f.length)
+    `
+  },
+
 ]
 
 export default {

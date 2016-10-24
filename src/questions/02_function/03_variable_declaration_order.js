@@ -1,4 +1,25 @@
 const questions = [
+  {
+    code:`
+      (function(){
+
+        log(typeof f );
+        var f= function(){  return 4 }
+
+      })()
+    `
+  },
+  {
+    code:`
+      (function(){
+
+        log(typeof f );
+        function f(){  return 4 }
+        
+      })()
+    `
+  }
+
 ]
 
 export default {
