@@ -65,7 +65,6 @@ const Sections = ({sections,setResponse,containerQuery}) => (
       {({action, location, router}) => {
         const showMobileNav = containerQuery.xsmall || containerQuery.small
         logPageView()
-        console.log('sections ',sections)
         return (
           <div>
             {showMobileNav && (
