@@ -10,7 +10,9 @@ export function safeEval(code){
 }
 
 export function formatEval(code){
-  if(code === undefined)
+  if(code === "err")
+    code = "err"
+  else if(code === undefined)
     code = "undefined"
   else
     code = JSON.stringify(code)
@@ -39,8 +41,12 @@ function evaluateCode(code){
     }
     vm.runInNewContext(code, context)
     */
+  try {
+    eval(code)
+  } catch(e) {
+    return "err"
+  }
 
-  eval(code)
 
   return formatEval(logResponse);
 }

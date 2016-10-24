@@ -24,5 +24,12 @@ export default {
         //so write '[1,"2"]'
       `
     },
+    {
+      code :`
+        log(a)
+        // this is an undeclared variable, it will return an Exception.
+        //so write "err"
+      `
+    },
   ]
 }

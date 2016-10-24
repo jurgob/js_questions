@@ -1,4 +1,47 @@
 const questions = [
+  {
+    code:`
+      var x = {"a b": "val"};
+      var res;
+      res = x["a b"]
+      log(res)
+    `
+  },
+  {
+    code:`
+      var x = {"a b": "val"};
+      var res;
+      res = x[a b]
+      log(res)
+    `
+  },
+  {
+    code:`
+      var x = {"a b": "val"};
+      var res;
+      res = x."a b"
+      log(res)
+    `
+  },
+  {
+    code: `
+      var x = {"3":8};
+      log(x["3"])
+    `
+  },
+  {
+    code: `
+      var x = {"3":8};
+      log(x[3])
+    `
+  },
+  {
+    code: `
+      var x = {"3":8};
+      log(x.3)
+    `
+  }
+
 ]
 export default {
   label:"Dot vs Bracket Notation",
