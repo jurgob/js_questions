@@ -1,24 +1,12 @@
 import React from 'react';
-// import Link from 'react-router/Link'
-import sectionsList from '../sectionsList';
 
+const NavigationMobile = ({curPath,onPathChange, sections}) => {
 
-
-
-const NavigationMobile = ({curPath,onPathChange}) => {
-
-  // let options = sectionsList.map(({title,subsections}) => ({
-  //   label: title,
-  //   options: subsections.map(({label,link}) => ({
-  //     label: label,
-  //     value: link
-  //   }))
-  // }))
-
-  const options = sectionsList.map(({title,subsections}) => (
-    <optgroup label={title} >
-      {subsections.map(({label,link}) => (
-        <option value={link} >{label}</option>
+  const options = sections.map(({title,subsections}) => (
+    <optgroup label={title} key={title} >
+      {subsections.map(({label,link, questions}) => (
+        <option key={link}  value={link} >{label} {" "}
+        ({questions.filter(q => !!q.response).length} / {questions.length}) </option>
       ))}
     </optgroup>
   ))
@@ -27,7 +15,7 @@ const NavigationMobile = ({curPath,onPathChange}) => {
     <div style={{textAlign:"left"}} >
       <select
         style={{
-          webkitAppearance:"none",
+          WebkitAppearance:"none",
           borderRadius:"0",
           background: "none",
           border:"1px solid #ccc",
@@ -43,14 +31,6 @@ const NavigationMobile = ({curPath,onPathChange}) => {
         <option value="/" >Jump to section...</option>
         {options}
       </select>
-      {/* <Select
-        name="form-field-name"
-        options={options}
-        value={curPath}
-        clearable={false}
-        placeholder="Jump to section..."
-        onChange={(el) => onPathChange(el.value)}
-      /> */}
     </div>
   )
 }
