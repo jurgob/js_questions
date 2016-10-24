@@ -1,4 +1,30 @@
 const questions = [
+  {
+    code: `
+      function f ()  {
+        var n = 3;
+        {
+            var n = 4;
+        }
+        return n;
+      };
+      log(f())
+    `
+  },
+  {
+    code: `
+      function f ()  {
+        var n = 3;
+
+        (function(){
+          var n = 4;
+        })();
+
+        return n;
+      };
+      log(f())
+    `
+  }
 ]
 
 export default {

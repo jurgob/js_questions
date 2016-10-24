@@ -15,10 +15,25 @@ const questions = [
 
         log(typeof f );
         function f(){  return 4 }
-        
+
       })()
     `
+  },
+  {
+    code:`
+      log(x);
+      var x = 5;
+    `
+  },
+  {
+    code:`
+      var x;
+      log(x);
+      x = 5;
+    `
   }
+
+
 
 ]
 
