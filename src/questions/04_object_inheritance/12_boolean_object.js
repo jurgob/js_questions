@@ -1,4 +1,18 @@
 const questions = [
+  {
+    code:`
+      log( Boolean(0) );
+    `
+  },
+  {
+    code:`
+      var xx = new Boolean(0);
+      log(
+        xx.valueOf()
+      );
+    `
+  }
+
 ]
 export default {
   label:"Boolean() Constructor Object",
