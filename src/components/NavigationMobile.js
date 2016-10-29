@@ -6,7 +6,7 @@ const NavigationMobile = ({curPath,onPathChange, sections}) => {
     <optgroup label={title} key={title} >
       {subsections.map(({label,link, questions}) => (
         <option key={link}  value={link} >{label} {" "}
-        ({questions.filter(q => !!q.response).length} / {questions.length}) </option>
+        ({questions.filter(q => q.response === q.solution).length} / {questions.length}) </option>
       ))}
     </optgroup>
   ))

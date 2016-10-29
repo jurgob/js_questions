@@ -35,7 +35,7 @@ const SectionLinks = ({sections}) => (
           style={styles.link}
           activeStyle={styles.linkActive}  >
             {m.label}
-            <span style={{whiteSpace:"nowrap"}} > ({m.questions.filter(q => !!q.response).length} / {m.questions.length})</span>
+            <span style={{whiteSpace:"nowrap"}} > ({m.questions.filter(q => q.response === q.solution).length} / {m.questions.length})</span>
         </Link>
       </div>
     ))}
