@@ -1,4 +1,16 @@
 const questions = [
+  {
+    code:`
+      var x = new Array
+      log(typeof x)
+    `
+  },
+  {
+    code:`
+      var x = new Array()
+      log(typeof x)
+    `
+  }
 ]
 export default {
   label:"What's Constructor?",
