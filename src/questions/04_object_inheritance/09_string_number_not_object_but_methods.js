@@ -1,4 +1,14 @@
 const questions = [
+  {
+    code:`
+      log(typeof "abc")
+    `
+  },
+  {
+    code:`
+      log(typeof new String("abc"))
+    `
+  }
 ]
 export default {
   label:"Primitive Types Object Wrapper",
