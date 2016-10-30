@@ -107,6 +107,10 @@ class App extends React.Component {
           <HeaderLine>
             The structure of the tests follows this tutorial: <a style={{color:"white"}}  href="http://xahlee.info/js/js.html">xahlee.info/js</a>
           </HeaderLine>
+          <HeaderLine>
+            On mobile devices It works <b>offline</b> if you Add the website to your home.
+          </HeaderLine>
+
         </div>
         <div style={{padding: "5px", textAlign:"left"}} >
           <b>Respones: { responsesLength} / {questionsTot}</b>
