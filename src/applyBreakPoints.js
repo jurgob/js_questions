@@ -1,6 +1,7 @@
 import React from 'react'
 import {applyContainerQuery} from 'react-container-query'
 
+
 const query = {
   'xsmall': {
     minWidth: 0,

@@ -34,6 +34,7 @@ class QuestionSection extends Component {
             ) }
             {questions.map( (question, idx) => (
               <div key={idx} style={{borderBottom: "1px solid #ddd", paddingBottom:"10px"}} >
+                solution: {question.response}
                 <Question
                   text={(idx+1)+")"}
                   code={question.code}

@@ -31,9 +31,7 @@ import {formatEval, safeEval} from '../utils/evaluateCode'
 const Question = ({id, code, text, onCheckResponse, response, solution}) => {
 
   const hasResponse = typeof response === 'string' && response !== ''
-
-  // const solution = _eval(code)
-
+  const responseFieldName ="response_"+id;
 
   const responseIsRight =
     hasResponse &&
@@ -60,12 +58,13 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
           <form
             onSubmit={(e)=>{
               e.preventDefault();
-              onCheckResponse(id, e.target.response.value)
+              onCheckResponse(id, e.target[responseFieldName].value)
             }}
         >
             <input
+              key={responseFieldName}
               type="text"
-              name="response"
+              name={responseFieldName}
               autoCorrect={false} autoCapitalize="off"
               placeholder={response ? response :""}
               style={{
