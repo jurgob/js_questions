@@ -9,7 +9,7 @@ const questions = [
   {
     code: `
       var o1 = {};
-      console.log(typeof o1["toString"]);
+      log(typeof o1["toString"]);
     `
   },
   {
