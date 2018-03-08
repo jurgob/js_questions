@@ -65,7 +65,8 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
               key={responseFieldName}
               type="text"
               name={responseFieldName}
-              autoCorrect={false} autoCapitalize="off"
+              autoCorrect="off" autoCapitalize="off" autoComplete="off"
+              spellCheck={false}
               placeholder={response ? response :""}
               style={{
                 width:"98%",
