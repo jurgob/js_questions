@@ -1,12 +1,12 @@
-const shareCode1 = `
-  var j = {};
-  var y = 12
-  j.y = 5;
-  var myFunc = function (x) {
-    return  x + this.y;
-  };
-  j.m =  myFunc;
-`
+// const shareCode1 = `
+//   var j = {};
+//   var y = 12
+//   j.y = 5;
+//   var myFunc = function (x) {
+//     return  x + this.y;
+//   };
+//   j.m =  myFunc;
+// `
 
 const questions = [
   {
