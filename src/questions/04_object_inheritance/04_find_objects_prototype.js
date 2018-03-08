@@ -63,7 +63,6 @@ const questions = [
       log( obj.isPrototypeOf(t1) )
     `
   },
-  ,
   {
     code:`
       ${shareCode}

@@ -1,7 +1,7 @@
-const shareCode = `
-  var uu = {};
-  Object.preventExtensions(uu);
-`
+// const shareCode = `
+//   var uu = {};
+//   Object.preventExtensions(uu);
+// `
 const questions = [
   {
     code:`

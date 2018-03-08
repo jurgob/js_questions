@@ -1,8 +1,8 @@
-const shareCode = `
-  function ff(x,y) {
-    return arguments
-  }
-`
+// const shareCode = `
+//   function ff(x,y) {
+//     return arguments
+//   }
+// `
 
 const questions = [
   {

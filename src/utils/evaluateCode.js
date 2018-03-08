@@ -1,5 +1,5 @@
 // import vm from 'vm-shim';
-
+/* eslint no-eval: 0 */
 
 export function safeEval(code){
   try{
