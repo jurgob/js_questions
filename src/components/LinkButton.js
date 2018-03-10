@@ -1,8 +1,9 @@
 import React from 'react';
-import Link from 'react-router/Link'
+// import Link from 'react-router/Link'
+import { NavLink } from 'react-router-dom'
 
 const LinkButton = (props) => (
-  <Link
+  <NavLink
     {...props}
     style={{
       display:"block",

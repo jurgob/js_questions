@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'react-router/Link'
+import { NavLink } from 'react-router-dom'
 
 const styles = {
   link:{
@@ -30,13 +30,13 @@ const SectionLinks = ({sections}) => (
 
     {sections.map((m, idx) => (
       <div key={idx} >
-        <Link
+        <NavLink
           to={m.link}
           style={styles.link}
           activeStyle={styles.linkActive}  >
             {m.label}
             <span style={{whiteSpace:"nowrap"}} > ({m.questions.filter(q => q.response === q.solution).length} / {m.questions.length})</span>
-        </Link>
+        </NavLink>
       </div>
     ))}
   </div>

@@ -4,8 +4,8 @@ import Navigation from './Navigation'
 import NavigationMobile from './NavigationMobile'
 import QuestionSection from './QuestionSection'
 import {Layout, MenuCol, ContCol} from './Layout2Col'
-import Router from 'react-router/BrowserRouter'
-import Match from 'react-router/Match'
+import { BrowserRouter as Router, Route,  } from 'react-router-dom'
+// import Route from 'react-router/Route'
 import applyBreakPoints from '../applyBreakPoints'
 import  ReactGA from 'react-ga';
 ReactGA.initialize(process.env.REACT_APP_JSQUEST_UA);
@@ -15,11 +15,14 @@ function logPageView() {
   ReactGA.pageview(window.location.pathname);
 }
 
-const XhleeMatch = ({sections,setResponse}) => (
-  <Match
+const XhleeRoute = ({sections,setResponse}) => (
+  <div>
+  <Route
     pattern="/*"
-    render={({ pathname, pattern }) => {
-
+    render={({ location }) => {
+    // pathname, pattern
+      const {pathname} = location;
+      console.log('cestil' ,location)
       let section;
       let nextLink;
       sections.forEach((s,i) => {
@@ -56,54 +59,63 @@ const XhleeMatch = ({sections,setResponse}) => (
       )
     }}
    />
+</div>
 )
 
-const Sections = ({sections,setResponse,containerQuery}) => (
-  <div >
-    <Router
-    >
-      {({action, location, router}) => {
-        const showMobileNav = containerQuery.xsmall || containerQuery.small
-        logPageView()
-        return (
-          <div>
-            {showMobileNav && (
-              <div style={{margin:"5px 5px "}}>
-                <NavigationMobile
-                  curPath={location.pathname}
-                  onPathChange={(path) => {router.transitionTo(path)  } }
-                  sections={sections}
-                />
-              </div>
-            )}
-            <Layout>
-              <MenuCol width="280px" >
-                <div style={{padding:"5px"}}>
-                  <Navigation sections={sections}  />
-                </div>
-              </MenuCol>
-              <ContCol>
-                <div style={{padding:"5px"}}>
-                  <Match component={StartTest} exactly pattern="/"  />
-                  <XhleeMatch {...{sections,setResponse}} />
-                </div>
-              </ContCol>
-            </Layout>
-            {showMobileNav && (
-              <div style={{margin:"15px 5px "}} >
-                <NavigationMobile
-                  curPath={location.pathname}
-                  onPathChange={(path) => {router.transitionTo(path)  } }
-                  sections={sections}
-                />
-              </div>
-            )}
+const Sections = ({sections,setResponse,containerQuery}) => {
+
+  const renderSections = ({action, location, router}) => {
+    const showMobileNav = containerQuery.xsmall || containerQuery.small
+    logPageView()
+    return (
+      <div>
+        {showMobileNav && (
+          <div style={{margin:"5px 5px "}}>
+            <NavigationMobile
+              curPath={location.pathname}
+              onPathChange={(path) => {router.transitionTo(path)  } }
+              sections={sections}
+            />
           </div>
-        )
-      }}
+        )}
+        <Layout>
+          <MenuCol width="280px" >
+            <div style={{padding:"5px"}}>
+              <Navigation sections={sections}  />
+            </div>
+          </MenuCol>
+          <ContCol>
+            <div style={{padding:"5px"}}>
+              <Route component={StartTest} exactly pattern="/"  />
+              <XhleeRoute {...{sections,setResponse}} />
+            </div>
+          </ContCol>
+        </Layout>
+        {showMobileNav && (
+          <div style={{margin:"15px 5px "}} >
+            <NavigationMobile
+              curPath={location.pathname}
+              onPathChange={(path) => {router.transitionTo(path)  } }
+              sections={sections}
+            />
+          </div>
+        )}
+      </div>
+    )
+  }
 
-    </Router>
-  </div>
-)
+  return (
+    <div >
+      <Router
+      >
+        <Route
+          pattern="/*"
+          render={({match, location, history}) => renderSections(match, location, history) }
+          // render={(dioboe) => console.log(dioboe) }
+        />
 
+      </Router>
+    </div>
+  )
+}
 export default applyBreakPoints(Sections)
