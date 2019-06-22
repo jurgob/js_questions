@@ -3,32 +3,6 @@ import PropTypes from 'prop-types';
 import Code from './Code'
 import {formatEval, safeEval} from '../utils/evaluateCode'
 
-// function formatEval(code){
-//   if(code === undefined)
-//     code = "undefined"
-//   else
-//     code = JSON.stringify(code)
-//
-//   return code
-// }
-//
-// function safeEval(code){
-//   try{
-//     return eval(code)
-//   }catch(e){
-//     return e.message
-//   }
-// }
-//
-// function _eval(code){
-  // let logResponse ="";
-  // const log = function(l){ logResponse=l }
-  // _eval.log = log;
-  // eval(code)
-  //
-  // return formatEval(logResponse);
-// }
-
 const Question = ({id, code, text, onCheckResponse, response, solution}) => {
 
   const hasResponse = typeof response === 'string' && response !== ''
