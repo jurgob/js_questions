@@ -15,10 +15,10 @@ const styles = {
 }
 
 const Navigation = ({sections}) => (
-  <div style={{textAlign:"left"}} >
+  <div className="Navigation" >
     {sections.map((m, idx) => (
-      <div key={idx} style={{paddingBottom:"20px"}} >
-        <b>{m.title}</b>
+      <div className="Navigation-section" key={idx}>
+        <h1 className="Navigation-title">{m.title}</h1>
         <SectionLinks sections={m.subsections} />
       </div>
     ))}
