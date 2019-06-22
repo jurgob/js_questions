@@ -1,14 +1,148 @@
 .App {
   text-align: center;
+  background-color: #f0f5f5;
 }
 
+* {
+  font-family: "OpenSans, Arial, Helvetica, sans-serif";
+}
 
 .App-header {
-  background-color: #222;
+
+  background-color: rgb(0, 49, 139);
   padding: 10px;
   color: white;
 }
 
+.App-header-title {
+  color: #fff;
+  font-size: 2em;
+
+}
+
+
+.HeaderLine {
+  color: #fff;
+  line-height: 140%;
+  display: "block";
+  padding-bottom: "5px";
+}
 .App-intro {
   font-size: large;
 }
+
+.Responses {
+  padding: 20px 10px ;
+  background-color: #fff;
+  box-shadow: 0.1px 1px 4px 0 #e7eeef;
+  margin-bottom: 10px;
+}
+
+.Responses-text {
+  font-size: 1.2em;
+}
+
+.QuestionSection {
+  text-align: left;
+  padding: 0 15px;
+}
+.QuestionSection-header{
+  background-color: #fff;
+  padding: 10px 10px 25px 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 14px 28px 0 rgba(0,0,0,.3);
+}
+
+
+.Question {
+  background-color: #fff;
+  padding: 0 15px 15px 15px;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px 0 rgba(0,0,0,.3);
+
+}
+.Question-code-container {
+  padding-bottom: 15px;
+}
+
+.Question-title {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-left: -15px;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  display: inline-block;
+  font-size: 1.5em;
+  color: #fff;
+  border-bottom-right-radius: 15px;
+  background-color: rgb(0, 49, 139);
+}
+
+.QuestionsList {
+
+}
+
+.QuestionList-item {
+  margin-bottom: 20px;
+
+}
+
+
+.LinkButton {
+  display: block;
+  background-color: #ddd;
+  color: black;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 2px;
+  background-color: rgb(0, 49, 139);
+}
+
+.FormResponse-container {
+  height:2.7em;
+  line-height: 2.7em;
+
+  border: 1px solid #ccc;
+  position: relative;
+  margin-bottom: 20px
+
+}
+
+.FormResponse-input-text {
+  height:2em;
+  line-height:2em;
+
+  width: 98%;
+  -webkit-appearance: none;
+  margin-right: -5px;
+  border: none;
+  font-size: 14px;
+  display: block;
+  padding:0px;
+
+}
+.FormResponse-input-submit {
+  height:2em;
+  line-height: 2em;
+  font-size: 1.4em;
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  margin:0;
+  display: block;
+  -webkit-appearance: none;
+  border-radius:0;
+
+  background-color: rgb(0, 49, 139);
+  color:white;
+  border: none;
+  border: 1px solid rgb(0, 49, 139);
+
+}
+

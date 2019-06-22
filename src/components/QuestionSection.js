@@ -22,10 +22,12 @@ class QuestionSection extends Component {
     const {title, introduction, nextLink,questions,onCheckResponse} = this.props;
 
     return (
-        <section style={{textAlign:"left"}} >
-          <h1>{title}</h1>
-          <div>{introduction}</div>
-          <div  className="questions"  >
+        <section className="QuestionSection">
+          <div className="QuestionSection-header" >
+            <h1 className="QuestionSection-header-title" >{title}</h1>
+            <div className="QuestionSection-header-introduction" >{introduction}</div>
+          </div>
+          <div  className="QuestionsList"  >
             {!questions.length && (
               <div style={{padding:"15px 0"}} >
                 <div><b>No questions for this section!</b></div>
@@ -33,10 +35,10 @@ class QuestionSection extends Component {
               </div>
             ) }
             {questions.map( (question, idx) => (
-              <div key={idx} style={{borderBottom: "1px solid #ddd", paddingBottom:"10px"}} >
+              <div className="QuestionList-item"  key={idx} >
                 {/* solution: {question.response} */}
                 <Question
-                  text={(idx+1)+")"}
+                  text={(idx+1)}
                   code={question.code}
                   onCheckResponse={(id, response) => onCheckResponse(id, response)}
                   response={question.response}

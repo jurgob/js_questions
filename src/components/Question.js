@@ -43,10 +43,10 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
   }
 
   return (
-    <div>
-      <div>
-        <h3>{text}</h3>
-        <div style={{paddingBottom:"15px"}} >
+    <div className="Question">
+      <h3 className="Question-title" >{text}</h3>
+      <div className="Question-body" >
+        <div className="Question-code-container" >
           {/* solution: {solution} */}
           <Code>
             {code}
@@ -54,7 +54,7 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
         </div>
       </div>
       {!responseIsRight && (
-        <div style={{border: "1px solid #ccc", position:"relative"}}>
+        <div className="FormResponse-container" >
           <form
             onSubmit={(e)=>{
               e.preventDefault();
@@ -62,42 +62,17 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
             }}
         >
             <input
+              className="FormResponse-input-text"
               key={responseFieldName}
               type="text"
               name={responseFieldName}
               autoCorrect="off" autoCapitalize="off" autoComplete="off"
               spellCheck={false}
               placeholder={response ? response :""}
-              style={{
-                width:"98%",
-                "WebkitAppearance": "none",
-                marginRight:"-5px",
-                border:"none",
-                fontSize:"14px",
-                lineHeigth:styleVars.height,
-                height:styleVars.height,
-                display:"block",
-                padding:"0px"
-              }}
             />
 
             <input
-              style={{
-                position:"absolute",
-                top:"0px",
-                right:"0px",
-                fontSize:"16px",
-                height:styleVars.height,
-                margin:"0",
-                display:"block",
-                "WebkitAppearance": "none",
-                borderRadius:"0",
-                lineHeigth:styleVars.height,
-                backgroundColor:"black",
-                color:"white",
-                border:"none",
-
-              }}
+              className="FormResponse-input-submit"
               type="submit"
               value="Check"
             />

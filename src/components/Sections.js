@@ -22,7 +22,6 @@ const XhleeRoute = ({sections,setResponse}) => (
     render={({ location }) => {
     // pathname, pattern
       const {pathname} = location;
-      console.log('cestil' ,location)
       let section;
       let nextLink;
       sections.forEach((s,i) => {

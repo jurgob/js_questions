@@ -96,7 +96,7 @@ class App extends React.Component {
     return (
       <div className="App" >
         <div className="App-header">
-          <h2>Javascript Questions</h2>
+          <h2 className="App-header-title">Javascript Questions</h2>
           <HeaderLine>
             This is a little test about your javascript ability. Write down in the inputs what the <code>log()</code> function will print
           </HeaderLine>
@@ -112,8 +112,8 @@ class App extends React.Component {
           </HeaderLine>
 
         </div>
-        <div style={{padding: "5px", textAlign:"left"}} >
-          <b>Respones: { responsesLength} / {questionsTot}</b>
+        <div className="Responses" >
+          <p className="Responses-text" >Responses: { responsesLength} / {questionsTot}</p>
         </div>
         <Sections sections={sections} setResponse={this.setResponse} />
       </div>
@@ -121,7 +121,7 @@ class App extends React.Component {
   }
 }
 
-const HeaderLine = ({children}) => <p style={{lineHeigth:"140%", display:"block", paddingBottom:"5px"}} > {children}</p>
+const HeaderLine = ({children}) => <p className="HeaderLine"> {children}</p>
 
 
 export default App;
