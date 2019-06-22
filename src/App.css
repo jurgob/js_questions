@@ -115,12 +115,11 @@
 .FormResponse-input-text {
   height:2em;
   line-height:2em;
-
   width: 98%;
   -webkit-appearance: none;
   margin-right: -5px;
   border: none;
-  font-size: 14px;
+  font-size: 1.3em;
   display: block;
   padding:0px;
 
