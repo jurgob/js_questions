@@ -1,5 +1,5 @@
 const warmUp2ShareCode = `
-  obj1: {}
+  var obj1 = {}
   var count = {'num':0  }
 
   var obj1 = {val: count}
