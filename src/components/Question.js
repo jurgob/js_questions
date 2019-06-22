@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import Code from './Code'
 import {formatEval, safeEval} from '../utils/evaluateCode'
 
@@ -37,10 +38,6 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
     hasResponse &&
     solution === formatEval(safeEval(response))
 
-  const styleVars = {
-    h: 26,
-    get height() { return this.h+"px"  }
-  }
 
   return (
     <div className="Question">

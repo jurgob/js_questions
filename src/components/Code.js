@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
+
 import Dimensions from './Dimensions';
 let beautify = require('js-beautify').js_beautify
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -25,7 +27,7 @@ class Code extends Component {
   }
 }
 
-const {oneOfType, object, string, number} = React.PropTypes
+const {oneOfType, object, string, number} = PropTypes
 Code.propTypes = {
   children: oneOfType([object, string]),
   id: string,

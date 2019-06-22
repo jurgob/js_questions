@@ -1,24 +1,10 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Question from './Question';
 import LinkButton from './LinkButton'
 
 class QuestionSection extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     questions:this.props.questions
-  //   }
-  // }
-  //
-  // updateQuestionResponse = (idx, response) => {//TODO: use immutability helpers
-  //
-  //   let _newQuestions = [...this.state.questions];
-  //   _newQuestions[idx].response = response;
-  //   this.setState({questions: _newQuestions})
-  // }
-
   render() {
-    // const {questions} = this.state;
     const {title, introduction, nextLink,questions,onCheckResponse} = this.props;
 
     return (
@@ -38,7 +24,7 @@ class QuestionSection extends Component {
               <div className="QuestionList-item"  key={idx} >
                 {/* solution: {question.response} */}
                 <Question
-                  text={(idx+1)}
+                  text={`${idx+1}`}
                   code={question.code}
                   onCheckResponse={(id, response) => onCheckResponse(id, response)}
                   response={question.response}
