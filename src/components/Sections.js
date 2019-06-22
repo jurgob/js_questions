@@ -18,14 +18,14 @@ function logPageView() {
 const XhleeRoute = ({sections,setResponse}) => (
   <div>
   <Route
-    pattern="/*"
+    pattern="/sections/*"
     render={({ location }) => {
     // pathname, pattern
       const {pathname} = location;
       let section;
       let nextLink;
       sections.forEach((s,i) => {
-        const subIdx = s.subsections.findIndex(sub => sub.link === pathname)
+        const subIdx = s.subsections.findIndex(sub => `${sub.link}` === pathname)
         if(subIdx !== -1){
           section = s.subsections[subIdx];
 
@@ -110,7 +110,6 @@ const Sections = ({sections,setResponse,containerQuery}) => {
         <Route
           pattern="/*"
           render={({match, location, history}) => renderSections(match, location, history) }
-          // render={(dioboe) => console.log(dioboe) }
         />
 
       </Router>

@@ -3,7 +3,7 @@ import LinkButton from './LinkButton'
 
 const StartTest = () => (
   <div style={{textAlign:"center"}}>
-    <LinkButton to="/warmup" >Start Test</LinkButton>
+    <LinkButton to="/sections/warmup" >Start Test</LinkButton>
   </div>
 )
 
