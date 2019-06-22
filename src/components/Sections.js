@@ -86,7 +86,7 @@ const Sections = ({sections,setResponse,containerQuery}) => {
           </MenuCol>
           <ContCol>
             <div style={{padding:"5px"}}>
-              <Route component={StartTest} exactly pattern="/"  />
+              <Route component={StartTest} exact={true} path="/"  />
               <XhleeRoute {...{sections,setResponse}} />
             </div>
           </ContCol>
