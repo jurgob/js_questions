@@ -27,7 +27,6 @@ const Navigation = ({sections}) => (
 
 const SectionLinks = ({sections}) => (
   <div>
-
     {sections.map((m, idx) => (
       <div key={idx} >
         <NavLink

@@ -26,7 +26,10 @@ class QuestionSection extends Component {
                 <Question
                   text={`${idx+1}`}
                   code={question.code}
-                  onCheckResponse={(id, response) => onCheckResponse(id, response)}
+                  onCheckResponse={(id, response) => {
+                    console.log("response ",response)
+                    onCheckResponse(id, response)
+                  }}
                   response={question.response}
                   id={question.id}
                   solution={question.solution}

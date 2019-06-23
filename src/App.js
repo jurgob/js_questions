@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import Sections from './components/Sections'
+import ImportPanel from './components/ImportPanel'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
 import evaluateCode from './utils/evaluateCode'
 
 import sha1 from 'sha1';
@@ -57,11 +60,8 @@ class App extends React.Component {
   componentDidMount(){
     const responses = localStorage.getItem("responses")
     // const lastAccessQuestionsTot = JSON.parse(localStorage.getItem("questionsTot"))
-
     const questionsTot = getQuestionsTot(sectionsList);
-    localStorage.setItem("questionsTot",JSON.stringify(questionsTot))
-
-
+    // localStorage.setItem("questionsTot",JSON.stringify(questionsTot))
     if(responses) {
       this.setState({
         responses:JSON.parse(responses)
@@ -74,13 +74,15 @@ class App extends React.Component {
       ...this.state.responses,
       [id]:response
     }
+    this.setResponses(responses)
+  }
 
+  setResponses = (responses) => {
+    console.log("setResponses", responses)
     this.setState({
       responses: responses
     })
-
     localStorage.setItem("responses",JSON.stringify(responses))
-
   }
 
   render(){
@@ -92,7 +94,7 @@ class App extends React.Component {
 
 
     const questionsTot = getQuestionsTot(sectionsList);
-
+    const exportUrl = `${window.location.origin}/import?state=${encodeURI(JSON.stringify({responses}))}`
     return (
       <div className="App" >
         <div className="App-header">
@@ -110,11 +112,23 @@ class App extends React.Component {
           <HeaderLine>
             On mobile devices It works <b>offline</b> if you Add the website to your home.
           </HeaderLine>
+          <HeaderLine>
+            You can get export your responses clicking  <CopyToClipboard text={exportUrl}>
+                <a className="HeaderLine-link">here</a>
+              </CopyToClipboard>, a url will be added to your clipboard.
+            Paste it in your new browser and you are gonna start the import procedure
+          </HeaderLine>
+
 
         </div>
         <div className="Responses" >
           <p className="Responses-text" >Responses: { responsesLength} / {questionsTot}</p>
         </div>
+        <ImportPanel curState={this.state} onImport={(newState) => {
+          this.setResponses(newState.responses)
+          window.location.href = "/"
+        }} />
+
         <Sections sections={sections} setResponse={this.setResponse} />
       </div>
     )

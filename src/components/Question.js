@@ -28,6 +28,7 @@ const Question = ({id, code, text, onCheckResponse, response, solution}) => {
         <div className="FormResponse-container" >
           <form
             onSubmit={(e)=>{
+              
               e.preventDefault();
               onCheckResponse(id, e.target[responseFieldName].value)
             }}
