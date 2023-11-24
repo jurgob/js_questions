@@ -2,7 +2,9 @@
   "name": "js_questions",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jurgob.github.io/js_questions",
   "devDependencies": {
+    "gh-pages": "^6.1.0",
     "react-scripts": "0.6.1"
   },
   "dependencies": {
@@ -27,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build && cp manifest.json build/ && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)' --navigate-fallback='index.html'",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
