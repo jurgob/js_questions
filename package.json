@@ -2,7 +2,7 @@
   "name": "js_questions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jurgob.github.io/js_questions",
+  "homepage": "https://jsquest.io",
   "devDependencies": {
     "gh-pages": "^6.1.0",
     "react-scripts": "0.6.1"
