@@ -20,33 +20,28 @@ export function formatEval(code){
   return code
 }
 
-// const geval = false || eval
+export function arrayDiff(a, b){
+  return a.filter(item => b.indexOf(item) === -1)
+}
+
+// Indirect eval runs the code as a plain (non-strict) global script, like a
+// browser <script> tag. Direct eval here would inherit this module's strict mode.
+const globalEval = eval
 
 function evaluateCode(code){
   let logResponse ="";
-  const log = function(l){ logResponse=l }
-  evaluateCode.log = log;
-  /* attemp A
-    const context = {
-      log
-    }
-    cons sCode = code // replace all "function a(){}"" with "a=a.bind(this);function a(){} "
-    new Function("window", "with(window){" + sCode + "}")({});
-  */
-
-  /* attemp VM
-
-    const context = {
-    log
-    }
-    vm.runInNewContext(code, context)
-    */
+  const globalsBefore = Object.keys(window)
+  window.log = function(l){ logResponse=l }
   try {
-    eval(code)
+    globalEval(code)
   } catch(e) {
     return "err"
+  } finally {
+    // remove globals created by the code (and log) so questions don't leak into each other
+    arrayDiff(Object.keys(window), globalsBefore).forEach(key => {
+      try { delete window[key] } catch(e) {}
+    })
   }
-
 
   return formatEval(logResponse);
 }
