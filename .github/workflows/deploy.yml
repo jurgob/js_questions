@@ -26,6 +26,12 @@ jobs:
       # npm ci fails on this old lockfile (bundled fsevents), so use npm install.
       - run: npm install --no-audit --no-fund
 
+      - run: npm run lint
+
+      - run: npm test
+        env:
+          CI: true
+
       - run: npm run build
 
       # Same target as `npm run deploy`: publish build/ to the gh-pages branch.

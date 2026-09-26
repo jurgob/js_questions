@@ -59,9 +59,6 @@ class App extends React.Component {
 
   componentDidMount(){
     const responses = localStorage.getItem("responses")
-    // const lastAccessQuestionsTot = JSON.parse(localStorage.getItem("questionsTot"))
-    const questionsTot = getQuestionsTot(sectionsList);
-    // localStorage.setItem("questionsTot",JSON.stringify(questionsTot))
     if(responses) {
       this.setState({
         responses:JSON.parse(responses)
