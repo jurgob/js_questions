@@ -59,6 +59,7 @@ const questions = [
   },
   {
     code:`
+      "use strict"
       var o = {
         ff:function () {
             var gg = function () {
