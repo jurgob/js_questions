@@ -6,13 +6,9 @@ const countResponses = (state) => {
 
 }
 const ImportPanelInternal = (props) => {
-    const {curState, onImport, match, location} = props;
+    const {curState, onImport, location} = props;
     let params = new URLSearchParams(location.search);
 
-    const {responses} = curState;
-    const url = `${window.location.origin}/import?state=${encodeURI(JSON.stringify({responses}))}`
-
-    const CurState = () =>  curState ? (<pre>{url}</pre>) : (<span>"-"</span>);
     const newState = JSON.parse(params.get("state"))
     console.log(newState)
     return (

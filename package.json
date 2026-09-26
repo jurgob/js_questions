@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && cp manifest.json build/ && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)' --navigate-fallback='index.html'; cp CNAME build/CNAME ",
     "test": "react-scripts test --env=jsdom",
+    "lint": "node node_modules/react-scripts/node_modules/eslint/bin/eslint.js --no-eslintrc -c node_modules/react-scripts/.eslintrc --max-warnings 0 src",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

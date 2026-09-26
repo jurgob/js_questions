@@ -4,8 +4,7 @@ import Navigation from './Navigation'
 import NavigationMobile from './NavigationMobile'
 import QuestionSection from './QuestionSection'
 import {Layout, MenuCol, ContCol} from './Layout2Col'
-import { BrowserRouter as Router, Route,  } from 'react-router-dom'
-// import Route from 'react-router/Route'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import applyBreakPoints from '../applyBreakPoints'
 import  ReactGA from 'react-ga';
 ReactGA.initialize(process.env.REACT_APP_JSQUEST_UA);
@@ -18,7 +17,7 @@ function logPageView() {
 const XhleeRoute = ({sections,setResponse}) => (
   <div>
   <Route
-    pattern="/sections/*"
+    path="/sections"
     render={({ location }) => {
     // pathname, pattern
       const {pathname} = location;
@@ -61,20 +60,24 @@ const XhleeRoute = ({sections,setResponse}) => (
 </div>
 )
 
-const Sections = ({sections,setResponse,containerQuery}) => {
+// Routes without their own Router, so tests can render them in a MemoryRouter
+export const SectionsRoutes = ({sections,setResponse,containerQuery}) => {
 
-  const renderSections = ({action, location, router}) => {
+  const renderSections = ({location, history}) => {
     const showMobileNav = containerQuery.xsmall || containerQuery.small
     logPageView()
+    const mobileNav = (
+      <NavigationMobile
+        curPath={location.pathname}
+        onPathChange={(path) => history.push(path)}
+        sections={sections}
+      />
+    )
     return (
       <div>
         {showMobileNav && (
           <div style={{margin:"5px 5px "}}>
-            <NavigationMobile
-              curPath={location.pathname}
-              onPathChange={(path) => {router.transitionTo(path)  } }
-              sections={sections}
-            />
+            {mobileNav}
           </div>
         )}
         <Layout>
@@ -92,28 +95,22 @@ const Sections = ({sections,setResponse,containerQuery}) => {
         </Layout>
         {showMobileNav && (
           <div style={{margin:"15px 5px "}} >
-            <NavigationMobile
-              curPath={location.pathname}
-              onPathChange={(path) => {router.transitionTo(path)  } }
-              sections={sections}
-            />
+            {mobileNav}
           </div>
         )}
       </div>
     )
   }
 
-  return (
-    <div >
-      <Router
-      >
-        <Route
-          pattern="/*"
-          render={({match, location, history}) => renderSections(match, location, history) }
-        />
-
-      </Router>
-    </div>
-  )
+  // no path: matches every url, the sections are picked by XhleeRoute
+  return <Route render={renderSections} />
 }
+
+const Sections = (props) => (
+  <div >
+    <Router>
+      <SectionsRoutes {...props} />
+    </Router>
+  </div>
+)
 export default applyBreakPoints(Sections)
