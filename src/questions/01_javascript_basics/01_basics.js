@@ -38,5 +38,5 @@ export default {
   label:"Basics",
   link:"/basics",
   questions,
-  tutorial_link:"http://xahlee.info/js/js_basics.html"
+  tutorial_link:"http://xahlee.info/js/js.html"
 }
