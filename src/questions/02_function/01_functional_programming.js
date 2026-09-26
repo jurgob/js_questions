@@ -76,5 +76,5 @@ export default {
   label:"Functional Programming",
   link:"/functionalprogramming",
   questions,
-  tutorial_link:"http://xahlee.info/js/javascript_lang_fun.html"
+  tutorial_link:"http://xahlee.info/js/js_functional_programing.html"
 }

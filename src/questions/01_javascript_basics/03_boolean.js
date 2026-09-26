@@ -72,5 +72,5 @@ export default {
   label:"Boolean",
   link:"/boolean",
   questions,
-  tutorial_link:"http://xahlee.info/js/javascript_boolean.html"
+  tutorial_link:"http://xahlee.info/js/js_boolean.html"
 }

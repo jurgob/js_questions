@@ -53,5 +53,5 @@ export default {
   label:"Object Basics",
   link:"/object_bsics",
   questions,
-  tutorial_link:"http://xahlee.info/js/javascript_object_basics.html"
+  tutorial_link:"http://xahlee.info/js/js_object_basics.html"
 }

@@ -33,5 +33,5 @@ export default {
   label:"Data Types",
   link:"/datatypes",
   questions,
-  tutorial_link:"http://xahlee.info/js/javascript_datatypes.html"
+  tutorial_link:"http://xahlee.info/js/js_datatypes.html"
 }

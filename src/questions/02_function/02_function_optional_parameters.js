@@ -56,5 +56,5 @@ export default {
  label:"Function Optional Parameters",
  link:"/javascript_function_arguments",
  questions,
- tutorial_link:"http://xahlee.info/js/javascript_function_arguments.html"
+ tutorial_link:"http://xahlee.info/js/js_function_arguments.html"
 }
