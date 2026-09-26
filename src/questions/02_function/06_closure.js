@@ -51,5 +51,5 @@ export default {
  label:"Closure",
  link:"/closure",
  questions,
- tutorial_link:"http://xahlee.info/js/javascript_closure.html"
+ tutorial_link:"http://xahlee.info/js/js_closure.html"
 }
