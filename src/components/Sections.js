@@ -66,19 +66,14 @@ export const SectionsRoutes = ({sections,setResponse,containerQuery}) => {
   const renderSections = ({location, history}) => {
     const showMobileNav = containerQuery.xsmall || containerQuery.small
     logPageView()
-    const mobileNav = (
-      <NavigationMobile
-        curPath={location.pathname}
-        onPathChange={(path) => history.push(path)}
-        sections={sections}
-      />
-    )
     return (
       <div>
         {showMobileNav && (
-          <div style={{margin:"5px 5px "}}>
-            {mobileNav}
-          </div>
+          <NavigationMobile
+            curPath={location.pathname}
+            onPathChange={(path) => history.push(path)}
+            sections={sections}
+          />
         )}
         <Layout>
           <MenuCol width="280px" >
@@ -100,11 +95,6 @@ export const SectionsRoutes = ({sections,setResponse,containerQuery}) => {
             </div>
           </ContCol>
         </Layout>
-        {showMobileNav && (
-          <div style={{margin:"15px 5px "}} >
-            {mobileNav}
-          </div>
-        )}
       </div>
     )
   }
