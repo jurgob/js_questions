@@ -40,7 +40,7 @@ class QuestionSection extends Component {
 
             {nextLink && (
               <div >
-                <LinkButton to={"/sections"+nextLink}>Next Section > </LinkButton>
+                <LinkButton to={nextLink}>Next Section > </LinkButton>
               </div>
             )}
 

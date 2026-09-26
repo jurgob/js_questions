@@ -48,7 +48,13 @@ it('shows the section matching the url, with a link to the next one', () => {
   const div = render('/sections/first', {large: true});
   expect(div.textContent).toContain('First');
   expect(div.textContent).not.toContain('Start Test');
-  expect(div.querySelector('a[href="/sections/second"]')).not.toBe(null);
+  expect(div.querySelector('a.LinkButton').getAttribute('href')).toBe('/sections/second');
+});
+
+it('redirects old /sections/sections/... links to the section', () => {
+  const div = render('/sections/sections/second', {xsmall: true});
+  expect(div.querySelector('select').value).toBe('/sections/second');
+  expect(div.textContent).toContain('Second');
 });
 
 it('renders the mobile navigation on small screens', () => {

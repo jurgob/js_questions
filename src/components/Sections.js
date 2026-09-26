@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 import NavigationMobile from './NavigationMobile'
 import QuestionSection from './QuestionSection'
 import {Layout, MenuCol, ContCol} from './Layout2Col'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import applyBreakPoints from '../applyBreakPoints'
 import  ReactGA from 'react-ga';
 ReactGA.initialize(process.env.REACT_APP_JSQUEST_UA);
@@ -89,7 +89,14 @@ export const SectionsRoutes = ({sections,setResponse,containerQuery}) => {
           <ContCol>
             <div style={{padding:"5px"}}>
               <Route component={StartTest} exact={true} path="/"  />
-              <XhleeRoute {...{sections,setResponse}} />
+              <Switch>
+                {/* the Next Section button used to link to /sections/sections/..., keep those links working */}
+                <Route
+                  path="/sections/sections/:link"
+                  render={({match}) => <Redirect to={`/sections/${match.params.link}`} />}
+                />
+                <Route render={() => <XhleeRoute {...{sections,setResponse}} />} />
+              </Switch>
             </div>
           </ContCol>
         </Layout>
